@@ -1,12 +1,26 @@
 import React from "react";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Page404 from "./pages/Page404";
 
 function App() {
   return (
-    <div className="">
-      <h1 className="text-red-300">Hello React from Revan</h1>
-      <Footer />
-    </div>
+    <Router>
+      <div className="">
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/about" exact>
+            <About />
+          </Route>
+          <Route>
+            <Page404 />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
