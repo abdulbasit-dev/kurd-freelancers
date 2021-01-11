@@ -3,6 +3,11 @@ module.exports = {
   important: false,
   separator: ':',
   theme: {
+    extend:{
+     height: {
+        '72' : '20rem'
+      }
+    },
     screens: {
       sm: '640px',
       md: '768px',
@@ -23,7 +28,7 @@ module.exports = {
         500: '#a0aec0',
         600: '#718096',
         700: '#4a5568',
-        800: '#2d3748',
+        800: '#2B3247',
         900: '#1a202c',
       },
       red: {
