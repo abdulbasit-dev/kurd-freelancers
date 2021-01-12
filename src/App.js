@@ -1,9 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Footer from "./components/Footer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./components/Header";
 import About from "./pages/About";
 import Home from "./pages/Home";
-import Page404 from "./pages/Page404";
+import Page404 from "./pages/Page404/Page404";
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
         <div className="flex-1">
         <Switch>
           <Route path="/" exact>
+            <Header />
             <Home />
           </Route>
           <Route path="/about" exact>
+            <Header />
             <About />
           </Route>
           <Route>
