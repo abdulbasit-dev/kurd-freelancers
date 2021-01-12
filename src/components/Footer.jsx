@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FacebookLogo from "./../assets/img/facebook.svg"
+import GmailLogo from "./../assets/img/gmail.svg"
+import LinkedinLogo from "./../assets/img/linkedin.svg"
 
 function Footer() {
   return (
@@ -94,9 +97,17 @@ function Footer() {
         <div className="flex w-full sm:w-1/2 lg:w-1/4 md:w-2/6 xl:w-1/5 mt-3">
           <ul className="text-white flex flex-col">
             <h2 className="text-xl font-bold">Connect With Us</h2>
-            <Link></Link>
-            <Link></Link>
-            <Link></Link>
+            <div className="flex justify-between">
+              <Link className="w-12 h-12">
+              <img src={FacebookLogo} alt="facebook logo " />
+            </Link>
+            <Link className="w-12 h-12">
+              <img src={GmailLogo} alt="facebook logo" />
+            </Link>
+            <Link className="w-12 h-12">
+              <img src={LinkedinLogo} alt="facebook logo" />
+            </Link>
+            </div>
           </ul>
         </div>
       </div>
