@@ -1,8 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 function Profile() {
+  const { userId } = useParams();
+  console.log(userId);
+
   return (
-    <div>
+    <div c>
       <h1 className="text-3xl">Profile Page</h1>
     </div>
   );
