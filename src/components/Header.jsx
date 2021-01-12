@@ -5,7 +5,7 @@ import logo from "../assets/img/logo.svg";
 
 function Header() {
   return (
-    <header className="shadow mb-6 py-2">
+    <header className="shadow  py-2">
       <div className="container flex flex-wrap justify-between  flex-col md:flex-row items-center">
         <div className="flex items-center ">
           <Link to="/">
