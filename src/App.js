@@ -1,29 +1,32 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Card from "./components/Card";
-// import About from "./pages/About";
-// import Home from "./pages/Home";
-// import Page404 from "./pages/Page404";
+
+import Header from "./components/Header";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Page404 from "./pages/Page404/Page404";
 
 function App() {
   return (
-    <Card />
-
-    // <Router>
-    //   <div className="">
-    //     <Switch>
-    //       <Route path="/" exact>
-    //         <Home />
-    //       </Route>
-    //       <Route path="/about" exact>
-    //         <About />
-    //       </Route>
-    //       <Route>
-    //         <Page404 />
-    //       </Route>
-    //     </Switch>
-    //   </div>
-    // </Router>
+    <Router>
+      <div className="">
+        <Card />
+        <Switch>
+          <Route path="/" exact>
+            <Header />
+            <Home />
+          </Route>
+          <Route path="/about" exact>
+            <Header />
+            <About />
+          </Route>
+          <Route>
+            <Page404 />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
