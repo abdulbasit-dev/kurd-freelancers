@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import About from "./pages/About";
 import Home from "./pages/Home";
-import Page404 from "./pages/Page404";
+import Page404 from "./pages/Page404/Page404";
 
 function App() {
   return (
