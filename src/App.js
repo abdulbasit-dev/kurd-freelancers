@@ -1,14 +1,30 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Footer from "./components/Footer";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Page404 from "./pages/Page404";
 
 function App() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <div className="flex-1">
-        <h1 className="text-red-300">Hello Footer</h1>
+    <Router>
+      <div className=" flex flex-col h-screen">
+        <div className="flex-1">
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/about" exact>
+            <About />
+          </Route>
+          <Route>
+            <Page404 />
+          </Route>
+          </Switch>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Router>
   );
 }
 
