@@ -32,8 +32,8 @@ function Profile() {
   ];
 
   return (
-    <div className="container">
-      <div className="flex justify-between border pt-24 bg-cover px-4 pb-1">
+    <div className="container ">
+      <div className="flex justify-between border pt-24 bg-cover px-4 pb-1 ">
         {/* avatar */}
         <img
           alt="Remy Sharp"
@@ -43,7 +43,7 @@ function Profile() {
         {/* rating */}
         <div className="text-white">
           <h3 className="mb-2">Rating:</h3>
-          <div className="flex items-center">
+          <div className="flex items-center container">
             <img src={starFull} alt="" />
             <img src={starFull} alt="" />
             <img src={starFull} alt="" />

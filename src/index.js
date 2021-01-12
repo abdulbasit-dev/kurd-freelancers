@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./assets/main.css";
-import "./assets/bootstrap-grid.css";
+import "./index.css";
+
 import App from "./App";
 
 ReactDOM.render(
