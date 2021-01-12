@@ -7,6 +7,9 @@ module.exports = {
       colors: {
         primary: "#ff0000",
       },
+      spacing: {
+        72: "25rem",
+      },
     },
     screens: {
       sm: "640px",

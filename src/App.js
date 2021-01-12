@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Card from "./components/Card";
-
 import Header from "./components/Header";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -11,7 +9,6 @@ function App() {
   return (
     <Router>
       <div className="">
-        <Card />
         <Switch>
           <Route path="/" exact>
             <Header />
