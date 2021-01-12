@@ -1,8 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
-import Page404 from "./pages/Page404";
+import Page404 from "./pages/Page404/Page404";
 
 function App() {
   return (
