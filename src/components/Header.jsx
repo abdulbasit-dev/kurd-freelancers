@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import logo from "../assets/img/logo.svg";
 
 function Header() {
   return (
-    <header className="shadow mb-6 py-2">
+    <header className="shadow  py-2">
       <div className="container flex flex-wrap justify-between  flex-col md:flex-row items-center">
         <div className="flex items-center ">
           <Link to="/">
@@ -19,7 +18,7 @@ function Header() {
               </Link>
             </li>
             <li>
-              <Link to="/" className="mr-5 hover:text-blue-600">
+              <Link to="/postjob" className="mr-5 hover:text-blue-600">
                 Post a Job
               </Link>
             </li>
@@ -33,12 +32,12 @@ function Header() {
         <div>
           <ul className="flex font-medium">
             <li>
-              <Link to="/" className="mr-5 hover:text-blue-600">
+              <Link to="/register" className="mr-5 hover:text-blue-600">
                 Register
               </Link>
             </li>
             <li>
-              <Link to="/" className="mr-5 hover:text-blue-600">
+              <Link to="/signin" className="mr-5 hover:text-blue-600">
                 Sign in
               </Link>
             </li>
