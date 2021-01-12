@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Page404 from "./pages/Page404/Page404";
+import SignIn from "./pages/SignIn";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
           <Route path="/about" exact>
             <Header />
             <About />
+          </Route>
+          <Route path="/sign-in">
+            <Header />
+            <SignIn/>
           </Route>
           <Route>
             <Page404 />
