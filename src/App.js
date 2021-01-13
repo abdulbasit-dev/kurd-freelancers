@@ -1,12 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import Header from "./components/Header";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Page404 from "./pages/Page404/Page404";
-import SignIn from "./pages/SignIn";
-
+import Profile from "./pages/Profile";
+import SignIn from "./pages/SignIn"
 function App() {
   return (
     <Router>
@@ -20,9 +19,13 @@ function App() {
             <Header />
             <About />
           </Route>
-          <Route path="/sign-in">
+          <Route path="/signin">
             <Header />
-            <SignIn/>
+            <SignIn />     
+          </Route>
+          <Route path="/profile/:userId">
+            <Header />
+            <Profile />
           </Route>
           <Route>
             <Page404 />
