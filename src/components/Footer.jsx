@@ -15,22 +15,13 @@ function Footer() {
               <Link to="/">Home</Link>
             </li>
             <li className="mt-2 hover:underline">
-              <Link>Post a Job</Link>
+              <Link to="postjob">Post a Job</Link>
             </li>
             <li className="mt-2 hover:underline">
-              <Link>Find a Freelancer</Link>
+              <Link to="findfreelancer">Find a Freelancer</Link>
             </li>
             <li className="mt-2 hover:underline">
-              <Link>Find a Job</Link>
-            </li>
-            <li className="mt-2 hover:underline">
-              <Link>Interprice a Solutions</Link>
-            </li>
-            <li className="mt-2 hover:underline">
-              <Link>Agency Solutions</Link>
-            </li>
-            <li className="mt-2 hover:underline">
-              <Link>PO Solutions</Link>
+              <Link to="findjob">Find a Job</Link>
             </li>
           </ul>
         </div>
@@ -38,45 +29,24 @@ function Footer() {
           <ul className="text-white">
             <h2 className="text-xl font-bold">Company Info</h2>
             <li className="mt-2 hover:underline">
-              <Link>About KurdFreelancer</Link>
+              <Link to="about">About KurdFreelancer</Link>
             </li>
             <li className="mt-2 hover:underline">
-              <Link>How KurdFreelancer Works</Link>
+              <Link to="/">How KurdFreelancer Works</Link>
             </li>
             <li className="mt-2 hover:underline">
-              <Link>Why KurdFreelancer</Link>
-              </li>
-            <li className="mt-2 hover:underline">
-              <Link>Work Agreements</Link>
-            </li>
-            <li className="mt-2 hover:underline">
-              Safe Pay
-            </li>
-            <li className="mt-2 hover:underline">
-              Pricing
+              <Link  to="/">Why KurdFreelancer</Link>
             </li>
           </ul>
         </div>
         <div className="flex w-full sm:w-1/2 lg:w-1/4 md:w-2/6 xl:w-1/5 mt-3">
           <ul className="text-white flex flex-col">
-            <h2 className="text-xl font-bold">Company Info</h2>
+            <h2 className="text-xl font-bold">Resources</h2>
             <li className="mt-2 hover:underline">
-              <Link>About KurdFreelancer</Link>
+              <Link to="contactus">Help & Support</Link>
             </li>
             <li className="mt-2 hover:underline">
-              <Link>How KurdFreelancer Works</Link>
-            </li>
-            <li className="mt-2 hover:underline">
-              <Link>Why KurdFreelancer</Link>
-            </li>
-            <li className="mt-2 hover:underline">
-              <Link>Work Agreements</Link>
-            </li>
-            <li className="mt-2 hover:underline">
-              <Link>Safe Pay</Link>
-            </li>
-            <li className="mt-2 hover:underline">
-              <Link>Pricing</Link>
+              <Link to="contactus">Contact Us</Link>
             </li>
           </ul>
         </div>
@@ -84,13 +54,13 @@ function Footer() {
           <ul className="text-white flex flex-col">
             <h2 className="text-xl font-bold">Policies</h2>
             <li className="mt-2 hover:underline">
-              <Link>IP Policy</Link> 
+              <Link to="ippolicy">IP Policy</Link> 
             </li>
             <li className="mt-2 hover:underline">
-              <Link>Privacy Policy </Link>
+              <Link to="privacypolicy">Privacy Policy </Link>
             </li>
             <li className="mt-2 hover:underline">
-              <Link>Terms of service</Link>
+              <Link to="termsofservice">Terms of service</Link>
             </li>
           </ul>
         </div>
