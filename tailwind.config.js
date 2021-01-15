@@ -9,6 +9,10 @@ module.exports = {
         secondary: "#ecc94b",
         lightblue: "#5B86BF",
       },
+      minHeight: {
+        96: "24rem",
+        100:"30rem",
+      },
     },
   },
   variants: {
