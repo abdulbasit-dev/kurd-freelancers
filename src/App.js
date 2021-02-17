@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./components/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import About from "./pages/About";
@@ -11,7 +12,8 @@ import Singnup from "./pages/Singnup";
 function App() {
   return (
     <Router>
-      <div className="">
+      <div className=" flex flex-col h-screen">
+        <div className="flex-1">
         <Switch>
           <Route path="/" exact>
             <Header />
@@ -36,7 +38,9 @@ function App() {
           <Route>
             <Page404 />
           </Route>
-        </Switch>
+          </Switch>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
