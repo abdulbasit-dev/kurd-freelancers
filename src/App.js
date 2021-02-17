@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Page404 from "./pages/Page404/Page404";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn"
+import Singnup from "./pages/Singnup";
+
 function App() {
   return (
     <Router>
@@ -24,6 +26,10 @@ function App() {
           <Route path="/signin">
             <Header />
             <SignIn />     
+          </Route>
+          <Route path="/signup">
+            <Header />
+            <Singnup/>
           </Route>
           <Route path="/profile/:userId">
             <Header />
