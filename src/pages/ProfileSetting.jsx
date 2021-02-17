@@ -50,7 +50,6 @@ const ProfileSetting = () => {
 <img  className="absolute w-full h-full " src="https://i.pinimg.com/originals/c1/5c/ba/c15cbae66a8a930a1cb292aaf60bb815.jpg" alt="cover"/>
 <button className="absolute z-20 right-0 mr-8 mt-3 border-2 border-white text-white rounded-md px-4 py-2" >change Cover</button>
 
-
             
             </div>
             <div className="shadow-xl w-9/12 min-h-3/4 flex -my-14 z-10 bg-white flex-col xl:flex-row">
@@ -111,7 +110,16 @@ const ProfileSetting = () => {
                                 )}
                             </div>
                         }
-                        { }
+                        {
+                            (acountSettingState === 2 ||
+                            acountSettingState === 3) && 
+                            <div className="flex flex-col mt-24">
+                                <h1 className="text-xl text-center">Contact</h1>
+                                <h2 className="text-lg text-gray-400 pl-6">Email: test@tetscom</h2>
+                                <h2 className="text-lg text-gray-400 pl-6">Phone Number: 0750 444 000 000</h2>
+                                <h2 className="text-lg text-gray-400 pl-6">Address: Erbil- Iraq</h2>
+                            </div>
+                        }
                     </div>
                 </div>
                 <div className="border my-10">
@@ -194,7 +202,7 @@ const ProfileSetting = () => {
                     }
                     {
                         acountSettingState === 1 &&
-                        <form className="flex flex-col border pl-10 pr-20 mt-6">
+                        <form className="flex flex-col pl-10 pr-20 mt-6">
                             <label htmlFor="projectname" className="text-xl">Project Name</label>
                             <input type="text" class=" border-2 rounded h-12 px-5 text-3xl " id="projectname" placeholder="Project name" onChange={(e) => {
                                 let temp = data.projects
@@ -203,19 +211,69 @@ const ProfileSetting = () => {
                             }} value={edit.editing ? data.projects[edit.id]?.name : ""} />
                             <label className="text-xl mt-3" htmlFor="projectdes">Project Description</label>
                             <textarea placeholder="Project Description" id="projectdes" onChange={(e) => { setData(p => ({ ...p, aboutme: e.target.value })) }} rows="4"  className="border-2 rounded resize-none text-3xl px-5">{edit.editing ? data.projects[0].des : ""}</textarea>
-                            
+                            <label htmlFor="projectdemo" className="text-xl mt-3">Project Demo URL</label>
+                            <input type="text" class=" border-2 rounded h-12 px-5 text-3xl " id="projectdemo" placeholder="Project Demo URL" />
+                            <label htmlFor="projectgithub" className="text-xl mt-3">Project Github URL</label>
+                            <input type="text" class=" border-2 rounded h-12 px-5 text-3xl " id="projectgithub" placeholder="Project Github URL" />
+                            <div className="flex justify-end mt-4">
+                                <button className={`p-2 bg-red-700 rounded-xl  hover:bg-red-500 px-10 text-white  ${edit.editing?"hiden":""}`} >
+                                    Delete
+                                </button>
+                                 <button className="p-2 bg-cover rounded-xl border-4 border-cover hover:bg-transparent  px-10 text-white ml-7 hover:text-cover" >
+                                    {edit.editing ? "Save":"Add"}
+                                </button>
+                                <button className="p-2 border-4 border-gray-300  rounded-xl px-10 text-gray-400 ml-7 hover:bg-gray-300" >
+                                    Cancel
+                                </button>
+                            </div>
                         </form>
                     }
                     {
                         acountSettingState === 2 &&
-                        <form>
-                            
+                        <form className="flex flex-col pl-10 pr-20 mt-6 justify-between">
+                             <label htmlFor="facebook" className="text-xl mt-3">Facebook</label>
+                            <input type="text" class=" border-2 rounded h-12 px-5 text-3xl " id="facebook" placeholder="Facebook Link" />
+                            <label htmlFor="github" className="text-xl mt-3">Github</label>
+                            <input type="text" class=" border-2 rounded h-12 px-5 text-3xl " id="github" placeholder="Github Link" />
+                            <label htmlFor="linkedin" className="text-xl mt-3">Linkedin</label>
+                            <input type="text" class=" border-2 rounded h-12 px-5 text-3xl " id="linkedin" placeholder="Github Link" />
+                            <div className="flex justify-end mt-20">
+                                <button className="p-2 bg-cover rounded-xl border-4 border-cover hover:bg-transparent  px-10 text-white hover:text-cover" onClick={(e)=>
+                                {
+                                    e.preventDefault()
+                                    setData1(data)
+                                }}>
+                                    Save
+                                </button>
+                                <button className="p-2 border-4 border-gray-300  rounded-xl px-10 text-gray-400 ml-7 hover:bg-gray-300" onClick={(e) => {
+                                    e.preventDefault()
+                                    setData(data1)
+                                }}>
+                                    Cancel
+                                </button>
+                            </div>
                         </form>
                     }
                     {
                         acountSettingState === 3 &&
-                        <form>
-                        
+                        <form className="flex flex-col pl-10 pr-20 mt-6 justify-between">
+                         <label htmlFor="currentpassword" className="text-xl mt-3">Current Password</label>
+                            <input type="password" class=" border-2 rounded h-12 px-5 text-3xl " id="currentpassword" placeholder="Password" />
+                            <label htmlFor="newpassword" className="text-xl mt-3">New Password</label>
+                            <input type="text" class=" border-2 rounded h-12 px-5 text-3xl " id="newpassword" placeholder="New Password" />
+                            <label htmlFor="Confirmpassword" className="text-xl mt-3">Confirm Password</label>
+                            <input type="text" class=" border-2 rounded h-12 px-5 text-3xl " id="Confirmpassword" placeholder="Confirm Password" />
+                            <div className="flex justify-end mt-20">
+                                <button className={`p-2 bg-red-700 rounded-xl  hover:bg-red-500 px-10 text-white`} >
+                                    Delete Account
+                                </button>
+                                 <button className="p-2 bg-cover rounded-xl border-4 border-cover hover:bg-transparent  px-10 text-white ml-7 hover:text-cover" >
+                                    Save
+                                </button>
+                                <button className="p-2 border-4 border-gray-300  rounded-xl px-10 text-gray-400 ml-7 hover:bg-gray-300" >
+                                    Cancel
+                                </button>
+                            </div>
                         </form>
                     }
                 </div>
