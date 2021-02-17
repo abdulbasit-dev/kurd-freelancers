@@ -7,25 +7,25 @@ import editIconOn from './../assets/img/editOn.svg'
 const ProfileSetting = () => {
     const [acountSettingState, setAccountSettingState] = useState(2)
     const [edit, setEdit] = useState({ id: 0, editing: false})
-    const [data1, setData1] = useState(() => {
-        return {
+    const [data1, setData1] = useState(
+        {
             firstname: "jone",
             lastname: "mcdonald",
             image: "https://i.pinimg.com/originals/44/69/c7/4469c769cb0d648dedccabe24d6fab8e.jpg",
             aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus",
             projects: [
                 {
-                    name: "Project Name",
+                    name: "Project Name1",
                     des:
                         " Lorem ipsum dolor sit amet consectetu adipisicing elit. Nisi, error, repellendus tenetur rem sequi illo atque ea corrupti numquam",
                 },
                 {
-                    name: "Project Name",
+                    name: "Project Name2",
                     des:
                         " Lorem ipsum dolor sit amet consectetu adipisicing elit. Nisi, error, repellendus tenetur rem sequi illo atque ea corrupti numquam",
                 },
                 {
-                    name: "Project Name",
+                    name: "Project Name3",
                     des:
                         " Lorem ipsum dolor sit amet consectetu adipisicing elit. Nisi, error, repellendus tenetur rem sequi illo atque ea corrupti numquam",
                 },
@@ -39,10 +39,10 @@ const ProfileSetting = () => {
             city: "Erbil",
             country: "kurdistan"
         }
-    }) 
+    ) 
     const [data, setData] = useState(() => data1)
-    console.log(data.projects);
-    console.log(edit.id);
+    console.log(edit.editing);
+    console.log(data.projects[edit.id].des);
     return (
         <div className="h-screen flex flex-col w-10/12 border-2 mx-auto items-center">
            <div className="relative w-full h-1/5">
@@ -132,35 +132,35 @@ const ProfileSetting = () => {
                             <div className="flex flex-wrap justify-between ">
                                 <div className="flex flex-col w-5/12">
                                     <label htmlFor="firstname" className="text-xl">First Name</label>
-                                    <input type="text" class=" border-2 rounded h-12 px-5 text-3xl" name="firstname" value={data.firstname} onChange={(e) => { setData(p => ({ ...p, firstname: e.target.value }))}}/>
+                                    <input type="text" class=" border-2 rounded h-12 px-5 text-3xl" id="firstname" value={data.firstname} onChange={(e) => { setData(p => ({ ...p, firstname: e.target.value }))}}/>
                                 </div>
                                 <div className="flex flex-col w-5/12">
                                     <label htmlFor="lastname" className="text-xl">Last Name</label>
-                                    <input type="text" class=" border-2 rounded h-12 px-5 text-3xl" name="Lastname" onChange={(e) => { setData(p => ({ ...p, lastname: e.target.value }))}} value={data.lastname} />
+                                    <input type="text" class=" border-2 rounded h-12 px-5 text-3xl" id="lastname" onChange={(e) => { setData(p => ({ ...p, lastname: e.target.value }))}} value={data.lastname} />
                                 </div>
                             </div>
                             <div className="flex flex-wrap justify-between mt-4">
                                 <div className="flex flex-col w-5/12">
                                     <label htmlFor="email" className="text-xl">First Name</label>
-                                    <input type="email" class=" border-2 rounded h-12 px-5 text-3xl" name="email" value={data.email} onChange={(e) => { setData(p => ({ ...p, email: e.target.value }))}}/>
+                                    <input type="email" class=" border-2 rounded h-12 px-5 text-3xl" id="email" value={data.email} onChange={(e) => { setData(p => ({ ...p, email: e.target.value }))}}/>
                                 </div>
                                 <div className="flex flex-col w-5/12">
                                     <label htmlFor="phonenumber" className="text-xl">Last Name</label>
-                                    <input type="text" class=" border-2 rounded h-12 px-5 text-3xl" name="phonenumber" onChange={(e) => { setData(p => ({ ...p, phoneNumber: e.target.value }))}} value={data.phoneNumber} />
+                                    <input type="text" class=" border-2 rounded h-12 px-5 text-3xl" id="phonenumber" onChange={(e) => { setData(p => ({ ...p, phoneNumber: e.target.value }))}} value={data.phoneNumber} />
                                 </div>
                             </div>
                             <div className="flex flex-wrap justify-between mt-4">
                                 <div className="flex flex-col w-5/12">
                                     <label htmlFor="city" className="text-xl">City</label>
-                                    <input type="text" class=" border-2 rounded h-12 px-5 text-3xl" name="city" value={data.city} onChange={(e) => { setData(p => ({ ...p, city: e.target.value }))}}/>
+                                    <input type="text" class=" border-2 rounded h-12 px-5 text-3xl" id="city" value={data.city} onChange={(e) => { setData(p => ({ ...p, city: e.target.value }))}}/>
                                 </div>
                                 <div className="flex flex-col w-5/12">
                                     <label htmlFor="country" className="text-xl">Country</label>
-                                    <input type="text" class=" border-2 rounded h-12 px-5 text-3xl" name="country" onChange={(e) => { setData(p => ({ ...p, country: e.target.value }))}} value={data.country} />
+                                    <input type="text" class=" border-2 rounded h-12 px-5 text-3xl" id="country" onChange={(e) => { setData(p => ({ ...p, country: e.target.value }))}} value={data.country} />
                                 </div>
                             </div>
                             <label htmlFor="abouteme" className="text-xl mt-4">About Me</label>
-                            <textarea onChange={(e) => { setData(p => ({ ...p, aboutme: e.target.value })) }} name="abouteme" rows="5" className="border-2 rounded resize-none">{data.aboutme}</textarea>
+                            <textarea onChange={(e) => { setData(p => ({ ...p, aboutme: e.target.value })) }} id="abouteme" rows="5" className="border-2 rounded resize-none">{data.aboutme}</textarea>
                             <div className="flex justify-between mt-4 text-gray-500">
                                 <button className="w-5/12 flex justify-center bg-gray-300 items-center rounded">
                                     <img src={cv} alt="cv icon" />
@@ -194,19 +194,22 @@ const ProfileSetting = () => {
                     }
                     {
                         acountSettingState === 1 &&
-                        <form className="flex flex-col border">
-                            <label htmlFor="projectname" className="text-xl">Project Name:</label>
-                            <input type="text" class=" border-2 rounded h-12 px-5 text-3xl" name="country" onChange={(e) => {
+                        <form className="flex flex-col border pl-10 pr-20 mt-6">
+                            <label htmlFor="projectname" className="text-xl">Project Name</label>
+                            <input type="text" class=" border-2 rounded h-12 px-5 text-3xl " id="projectname" placeholder="Project name" onChange={(e) => {
                                 let temp = data.projects
                                 console.log(temp);
-                                setData(p => ({ ...p, projects: temp.splice(edit.id, 1, { name: e.target.value, des: temp.projects[edit.id].des }) }))
-                            }} value={edit.editing ? data.projects[edit.id].name : ""} />
+                                setData(p => ({ ...p, projects: temp.splice(edit.id, 1, { name: e.target.value, des: temp?.projects[edit.id].des }) }))
+                            }} value={edit.editing ? data.projects[edit.id]?.name : ""} />
+                            <label className="text-xl mt-3" htmlFor="projectdes">Project Description</label>
+                            <textarea placeholder="Project Description" id="projectdes" onChange={(e) => { setData(p => ({ ...p, aboutme: e.target.value })) }} rows="4"  className="border-2 rounded resize-none text-3xl px-5">{edit.editing ? data.projects[0].des : ""}</textarea>
+                            
                         </form>
                     }
                     {
                         acountSettingState === 2 &&
                         <form>
-                        
+                            
                         </form>
                     }
                     {
