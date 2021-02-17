@@ -11,14 +11,16 @@ module.exports = {
       },
       minHeight: {
         96: "24rem",
-        100:"30rem",
+        100: "30rem",
+        "3/4": "75%",
       },
     },
   },
   variants: {
     extend: {
       margin: ['focus'],
-      height:['focus']
+      height: ['focus'],
+      cursor: ['hover']
     },
   },
   plugins: [],
