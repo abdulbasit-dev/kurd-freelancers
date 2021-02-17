@@ -3,16 +3,19 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      boxShadow: {
+        b: '0 0 4px 4px rgb(20 102 143 / 8%)',
+      },
       colors: {
-        cover: "#0076CB",
-        primary: "#5c6ac4",
-        secondary: "#ecc94b",
-        lightblue: "#5B86BF",
+        cover: '#0076CB',
+        primary: '#5c6ac4',
+        secondary: '#ecc94b',
+        lightblue: '#5B86BF',
       },
       minHeight: {
-        96: "24rem",
-        100: "30rem",
-        "3/4": "75%",
+        96: '24rem',
+        100: '30rem',
+        '3/4': '75%',
       },
     },
   },
@@ -20,7 +23,7 @@ module.exports = {
     extend: {
       margin: ['focus'],
       height: ['focus'],
-      cursor: ['hover']
+      cursor: ['hover'],
     },
   },
   plugins: [],

@@ -30,6 +30,7 @@ function App() {
             <Route path='/jobs' exact>
               <Header />
               <Jobs />
+              <Footer />
             </Route>
             <Route path='/about' exact>
               <Header />
