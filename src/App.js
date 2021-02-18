@@ -27,6 +27,7 @@ function App() {
             <Route path='/post-job' exact>
               <Header />
               <PostJob />
+              <Footer />
             </Route>
             <Route path='/jobs' exact>
               <Header />
@@ -43,7 +44,7 @@ function App() {
               <About />
               <Footer />
             </Route>
-            <Route path='/profilesetting' exact>
+            <Route path='/profile-setting' exact>
               <Header />
               <ProfileSetting />
             </Route>
