@@ -1,25 +1,18 @@
-import React, {useState} from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import React, {useState, useEffect} from 'react';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import jobs from '../assets/img/jobs.svg';
 import Card from '../components/Card';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      // width: '25ch',
-    },
-  },
-}));
-
 function Jobs() {
-  const classes = useStyles();
   const [type, setType] = useState('Web Develper');
   const [location, setLocation] = useState('Erbil');
   // const [posts, usePosts] = useState([]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const fields = [
     'Front-End Web Developer',
@@ -73,7 +66,7 @@ function Jobs() {
         <div className='grid grid-cols-3 gap-12'>
           <div>
             <TextField
-              id='outlined-select-currenc'
+              id='utlined-select-courrenc'
               select
               fullWidth={true}
               label='Job Type'
@@ -81,7 +74,6 @@ function Jobs() {
               onChange={handleChange}
               variant='outlined'
             >
-              <MenuItem value={1}>choose a place</MenuItem>
               {fields.map(option => (
                 <MenuItem key={option} value={option}>
                   {option}
@@ -99,7 +91,6 @@ function Jobs() {
               onChange={handleLocation}
               variant='outlined'
             >
-              <MenuItem value={1}>choose a place</MenuItem>
               {locations.map(option => (
                 <MenuItem key={option} value={option}>
                   {option}
@@ -124,8 +115,10 @@ function Jobs() {
           <div className='h-0.5 bg-gray-400'></div>
         </div>
         <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12'>
-          {posts.map(post => (
+          {posts.map((post, index) => (
             <Card
+              key={index}
+              path={`jobs/${index + 1}`}
               name='John Doe'
               tags={['test', 'test', 'test']}
               description=' Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aperiam ipsam dicta impedit pariatur?'

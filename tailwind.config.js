@@ -6,9 +6,15 @@ module.exports = {
       boxShadow: {
         b: '0 0 4px 4px rgb(20 102 143 / 8%)',
       },
+      spacing: {
+        72: '18rem',
+        80: '20rem',
+        96: '24rem',
+        98: '36rem',
+      },
       colors: {
         cover: '#0076CB',
-        primary: '#5c6ac4',
+        primary: '#0076CB',
         secondary: '#ecc94b',
         lightblue: '#5B86BF',
       },
