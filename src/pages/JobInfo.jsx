@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 function JobInfo() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className='container mt-12 mb-24'>
       <section className='flex justify-between items-center'>
