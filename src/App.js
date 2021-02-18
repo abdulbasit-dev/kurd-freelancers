@@ -12,6 +12,7 @@ import ProfileSetting from './pages/ProfileSetting';
 import Singnup from './pages/Singnup';
 import PostJob from './pages/PostJob';
 import Jobs from './pages/Jobs';
+import JobInfo from './pages/JobInfo';
 
 function App() {
   return (
@@ -30,6 +31,11 @@ function App() {
             <Route path='/jobs' exact>
               <Header />
               <Jobs />
+              <Footer />
+            </Route>
+            <Route path='/jobs/:jobId' exact>
+              <Header />
+              <JobInfo />
               <Footer />
             </Route>
             <Route path='/about' exact>
