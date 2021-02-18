@@ -44,7 +44,7 @@ const ProfileSetting = () => {
     console.log(edit.editing);
     console.log(data.projects[edit.id].des);
     return (
-        <div className="h-screen flex flex-col w-10/12 border-2 mx-auto items-center">
+        <div className="h-screen flex flex-col w-10/12  mx-auto items-center">
            <div className="relative w-full h-1/5">
 
 <img  className="absolute w-full h-full " src="https://i.pinimg.com/originals/c1/5c/ba/c15cbae66a8a930a1cb292aaf60bb815.jpg" alt="cover"/>
