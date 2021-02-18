@@ -31,7 +31,7 @@ function Header() {
         </div>
         <div>
           <ul className='flex font-medium items-center'>
-            <li className='px-3 py-1 mr-5 bg-blue-400 text-white rounded-lg'>
+            <li className='px-3 py-1 mr-5 bg-primary text-white rounded-lg'>
               <Link to='/post-job' className=''>
                 Post a Job
               </Link>

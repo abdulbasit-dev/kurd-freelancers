@@ -7,6 +7,7 @@ module.exports = {
         b: '0 0 4px 4px rgb(20 102 143 / 8%)',
       },
       spacing: {
+        0.1: '0.1rem',
         72: '18rem',
         80: '20rem',
         96: '24rem',
