@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 
 function JobPost() {
   return (
-    <div>
-      <h1 className="text-3xl">Job Post Page</h1>
+    <div className='container mt-10'>
+      <h1 className='text-3xl'>Post Your Job on KurdFreelancer</h1>
+      <div className='bg-gray-400 h-0.5 mt-2'></div>
     </div>
   );
 }
