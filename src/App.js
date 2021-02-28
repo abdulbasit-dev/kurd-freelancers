@@ -53,7 +53,7 @@ function App() {
               <SignIn />
               <Footer />
             </Route>
-            <Route path='/signup'>
+            <Route path='/register'>
               <Header />
               <Singnup />
             </Route>

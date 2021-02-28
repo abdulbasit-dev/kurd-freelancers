@@ -41,8 +41,8 @@ const ProfileSetting = () => {
   console.log(edit.editing);
   console.log(data.projects[edit.id].des);
   return (
-    <div className='h-screen flex flex-col w-10/12 border-2 mx-auto items-center'>
-      <div className='relative w-full h-1/5'>
+    <div className='flex flex-col w-10/12  mx-auto items-center'>
+      <div className='relative w-full h-64'>
         <img
           className='absolute w-full h-full '
           src='https://i.pinimg.com/originals/c1/5c/ba/c15cbae66a8a930a1cb292aaf60bb815.jpg'
@@ -52,28 +52,28 @@ const ProfileSetting = () => {
           change Cover
         </button>
       </div>
-      <div className='shadow-xl w-9/12 min-h-3/4 flex -my-14 z-10 bg-white flex-col xl:flex-row'>
-        <div className='w-2/5 flex flex-col'>
+      <div className='shadow-xl w-9/12 min-h-3/4 flex -my-14 z-10 bg-white flex-col justify-center items-center xl:flex-row'>
+        <div className='w-full justify-center xl:w-2/5 flex flex-col  items-center'>
           <div className='flex flex-col'>
             <div className='flex justify-center relative'>
-              <div className='rounded-full w-48 h-48 flex justify-center items-center relative ml-6 mt-6 '>
+              <div className='rounded-full xl:w-48 xl:h-48 md:h-24 md:w-24 w-20 h-20  flex justify-center items-center relative ml-6 mt-6 '>
                 <img
                   src={data.image}
                   alt='profileimage'
                   className='w-full h-full rounded-full absolute'
                 />
-                <button className='absolute z-20 bottom-0 right-0 mr-3 mb-3'>
+                <button className='absolute z-20 bottom-0 right-0 xl:mr-3 xl:mb-3'>
                   <img src={changeProfilePic} alt='change profile pic button' />
                 </button>
               </div>
-              <div className='flex items-center mr-10  absolute top-0 left-0 ml-10 mt-10'>
+              <div className='flex items-center mr-10 absolute top-0 left-0 mt-4 -ml-3   xl:mt-10'>
                 <button className='border-2 border-blue-400 p-1 text-blue-400 rounded-md foc outline-none'>
                   EN
                 </button>
               </div>
             </div>
           </div>
-          <div className=' flex justify-center mt-3'>
+          <div className=' flex justify-center mt-3 text-center'>
             <div className=''>
               <h1 className='text-4xl '>
                 {data1.firstname + ' ' + data1.lastname}
@@ -147,7 +147,7 @@ const ProfileSetting = () => {
           </div>
         </div>
         <div className='border my-10'></div>
-        <div className='w-3/5  flex flex-col'>
+        <div className='w-full xl:w-3/5  flex flex-col'>
           <div className=''>
             <ul className='flex justify-around text-2xl mt-10'>
               <li
