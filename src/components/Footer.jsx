@@ -6,7 +6,7 @@ import LinkedinLogo from "./../assets/img/linkedin.svg"
 
 function Footer() {
   return (
-    <div className="flex flex-col w-full bg-gray-800 relative bottom-0">
+    <div className="flex flex-col w-full bg-gray-800 fix bottom-0">
       <div className="flex my-4 mx-20 flex-wrap">
         <div className="flex w-full sm:w-1/2 lg:w-1/4 md:w-2/6 xl:w-1/5 mt-3">
           <ul className="text-white">
