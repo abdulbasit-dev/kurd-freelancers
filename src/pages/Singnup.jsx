@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button'
 const Singnup = () => {
   return (
       <>
-            <div className="flex w-full h-screen justify-center items-center border-lightblue">
+            <div className="flex w-full justify-center items-center border-lightblue mt-52">
                 <div className="flex flex-col lg:flex-row w-3/5 shadow-2xl">
                     <div className="flex lg:w-5/12 border bg-lightblue flex-col p-10 items-center text-white justify-center ">
             <div className="flex flex-col items-center">
