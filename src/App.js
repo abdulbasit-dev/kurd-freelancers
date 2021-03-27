@@ -51,7 +51,7 @@ function App() {
             <Route path='/signin'>
               <Header />
               <SignIn />
-              <Footer />
+              <Footer className="xl:absolute" />
             </Route>
             <Route path='/register'>
               <Header />
