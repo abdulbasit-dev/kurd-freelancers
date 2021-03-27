@@ -42,8 +42,8 @@ const Singnup = () => {
                         <h1 className="mx-3 tablet:block justify-self-center self-center ">Or</h1>
                         <div className="border w-44 my-4 hidden sm:block"></div>
                     </div>
-            <form action="" className="flex flex-col w-96 max-w-full border-4">
-               <div className="w-full tablet:w-96 border-4">
+            <form action="" className="flex flex-col w-96 max-w-full ">
+               <div className="w-full tablet:w-96">
                   <TextField
                     variant="outlined"
                     margin="normal"
