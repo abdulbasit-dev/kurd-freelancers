@@ -56,6 +56,7 @@ function App() {
             <Route path='/register'>
               <Header />
               <Singnup />
+              <Footer className="xl:absolute" />
             </Route>
             <Route path='/profile/:userId'>
               <Header />
