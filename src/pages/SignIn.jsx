@@ -8,9 +8,9 @@ import Button from '@material-ui/core/Button'
 
 const SignIn = () => {
     return (
-        <div className="flex  justify-center items-center mt-28 overflow-x-hidden mb-14">
-            <div className="relative min-h-100 flex rounded w-full md:w-2/3 border-4  flex-col tablet:flex-row  tablet:px-0 min-w-full tablet:min-w-0  justify-center items-center shadow-xl md:px-20">
-                <div className="flex tablet:absolute left-0 bg-lightblue w-full rounded-l min-h-full tablet:w-5/12 flex-col pt-5 px-12 text-white">
+        <div className="flex  justify-center items-center mt-28 overflow-x-hidden ">
+            <div className="relative min-h-100 flex rounded w-full md:w-2/3  flex-col tablet:flex-row  tablet:px-0 mb-14 min-w-full tablet:min-w-0  justify-center items-center py-10 md:px-20">
+                <div className="flex tablet:absolute left-0  tablet:shadow-2xl bg-lightblue w-full rounded-l min-h-full tablet:w-5/12 flex-col pt-5 px-12 text-white">
                     <h1 className="text-3xl text-center">What are you</h1>
                     <h1 className="text-3xl text-center ">waiting for?</h1>
                     <p className="text-center mt-12">
@@ -24,7 +24,7 @@ const SignIn = () => {
                     
 
                 </div>
-                <div className="flex flex-col tablet:absolute items-center w-full tablet:w-7/12  rounded-r right-0 text-lightblue min-h-full shadow-xl ">
+                <div className="flex flex-col tablet:absolute items-center w-full tablet:w-7/12  rounded-r right-0 text-lightblue min-h-full shadow-2xl ">
                     <h1 className="text-4xl mt-2">Log in</h1>
                     <div className="border w-96 max-w-full m-4 "></div>
                     <div className="flex flex-col tablet:flex-row justify-around items-center w-96 flex-wrap">
@@ -78,7 +78,7 @@ const SignIn = () => {
                             </label>
                             
                         </div>
-                        <div className="flex mt-8 self-start tablet:-mx-10">
+                        <div className="flex mt-8 self-start tablet:-mx-10 mb-10">
                             <Button variant="outlined" color="primary">
                                 Log in
                             </Button>
