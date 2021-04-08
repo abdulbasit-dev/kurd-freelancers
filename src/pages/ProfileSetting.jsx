@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import changeProfilePic from './../assets/img/changeProfilePic.svg';
 import certificate from './../assets/img/certificates.svg';
 import cv from './../assets/img/cv.svg';
@@ -6,7 +6,7 @@ import editIcon from './../assets/img/edit.svg';
 import editIconOn from './../assets/img/editOn.svg';
 const ProfileSetting = () => {
   const [acountSettingState, setAccountSettingState] = useState(2);
-  const [edit, setEdit] = useState({id: 0, editing: false});
+  const [edit, setEdit] = useState({ id: 0, editing: false });
   const [data1, setData1] = useState({
     firstname: 'jone',
     lastname: 'mcdonald',
@@ -121,7 +121,7 @@ const ProfileSetting = () => {
                         alt='edit icon'
                         className=' hover:cursor-pointer'
                         onClick={e => {
-                          setEdit({id: index, editing: true});
+                          setEdit({ id: index, editing: true });
                         }}
                       />
                     </div>
@@ -149,7 +149,7 @@ const ProfileSetting = () => {
         <div className='border my-10'></div>
         <div className='w-full xl:w-3/5  flex flex-col'>
           <div className=''>
-            <ul className='flex justify-around text-2xl mt-10'>
+            <ul className='hidden justify-around text-2xl mt-10 md:flex '>
               <li
                 className={
                   acountSettingState === 0
@@ -213,7 +213,7 @@ const ProfileSetting = () => {
                     id='firstname'
                     value={data.firstname}
                     onChange={e => {
-                      setData(p => ({...p, firstname: e.target.value}));
+                      setData(p => ({ ...p, firstname: e.target.value }));
                     }}
                   />
                 </div>
@@ -226,7 +226,7 @@ const ProfileSetting = () => {
                     class=' border-2 rounded h-12 px-5 text-3xl'
                     id='lastname'
                     onChange={e => {
-                      setData(p => ({...p, lastname: e.target.value}));
+                      setData(p => ({ ...p, lastname: e.target.value }));
                     }}
                     value={data.lastname}
                   />
@@ -243,7 +243,7 @@ const ProfileSetting = () => {
                     id='email'
                     value={data.email}
                     onChange={e => {
-                      setData(p => ({...p, email: e.target.value}));
+                      setData(p => ({ ...p, email: e.target.value }));
                     }}
                   />
                 </div>
@@ -256,7 +256,7 @@ const ProfileSetting = () => {
                     class=' border-2 rounded h-12 px-5 text-3xl'
                     id='phonenumber'
                     onChange={e => {
-                      setData(p => ({...p, phoneNumber: e.target.value}));
+                      setData(p => ({ ...p, phoneNumber: e.target.value }));
                     }}
                     value={data.phoneNumber}
                   />
@@ -273,7 +273,7 @@ const ProfileSetting = () => {
                     id='city'
                     value={data.city}
                     onChange={e => {
-                      setData(p => ({...p, city: e.target.value}));
+                      setData(p => ({ ...p, city: e.target.value }));
                     }}
                   />
                 </div>
@@ -286,7 +286,7 @@ const ProfileSetting = () => {
                     class=' border-2 rounded h-12 px-5 text-3xl'
                     id='country'
                     onChange={e => {
-                      setData(p => ({...p, country: e.target.value}));
+                      setData(p => ({ ...p, country: e.target.value }));
                     }}
                     value={data.country}
                   />
@@ -297,7 +297,7 @@ const ProfileSetting = () => {
               </label>
               <textarea
                 onChange={e => {
-                  setData(p => ({...p, aboutme: e.target.value}));
+                  setData(p => ({ ...p, aboutme: e.target.value }));
                 }}
                 id='abouteme'
                 rows='5'
@@ -367,7 +367,7 @@ const ProfileSetting = () => {
                 placeholder='Project Description'
                 id='projectdes'
                 onChange={e => {
-                  setData(p => ({...p, aboutme: e.target.value}));
+                  setData(p => ({ ...p, aboutme: e.target.value }));
                 }}
                 rows='4'
                 className='border-2 rounded resize-none text-3xl px-5'
@@ -394,9 +394,8 @@ const ProfileSetting = () => {
               />
               <div className='flex justify-end mt-4'>
                 <button
-                  className={`p-2 bg-red-700 rounded-xl  hover:bg-red-500 px-10 text-white  ${
-                    edit.editing ? 'hiden' : ''
-                  }`}
+                  className={`p-2 bg-red-700 rounded-xl  hover:bg-red-500 px-10 text-white  ${edit.editing ? 'hiden' : ''
+                    }`}
                 >
                   Delete
                 </button>
