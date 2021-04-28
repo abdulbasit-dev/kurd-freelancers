@@ -16,7 +16,7 @@ function JobInfo() {
       setLoading(false);
     };
     getData();
-  }, []);
+  }, [jobId]);
 
   console.log(post);
 
