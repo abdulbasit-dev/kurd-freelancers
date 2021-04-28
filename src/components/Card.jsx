@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import logo from '../assets/img/emoji.png';
+// import logo from '../assets/img/emoji.png';
 function Card({image, name, tags, description, path}) {
   return (
     <Link to={path}>
@@ -25,20 +25,20 @@ function Card({image, name, tags, description, path}) {
   );
 }
 export default Card;
-{
-  /* <Card
-image="./assets/img/emoji.png"
-name="name name"
-tags={[
-  "web developer",
-  "mobile app developer",
-  "graphic designer",
-  "motion graphic",
-  "graphic designer",
-  "motion graphic",
-  "graphic",
-  "motion",
-]}
-description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, inventore! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, inventore!"
-/> */
-}
+// {
+//   /* <Card
+// image="./assets/img/emoji.png"
+// name="name name"
+// tags={[
+//   "web developer",
+//   "mobile app developer",
+//   "graphic designer",
+//   "motion graphic",
+//   "graphic designer",
+//   "motion graphic",
+//   "graphic",
+//   "motion",
+// ]}
+// description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, inventore! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, inventore!"
+// /> */
+// }
