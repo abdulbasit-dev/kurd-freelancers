@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, TextField} from '@material-ui/core';
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import axios from '../axios';
@@ -14,9 +14,7 @@ import GithubLogo from './../assets/img/github.svg';
 const SignIn = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
-
-  const notify = () => toast('Wow so easy !');
+  // const [error, setError] = useState('');
 
   const login = async e => {
     e.preventDefault();

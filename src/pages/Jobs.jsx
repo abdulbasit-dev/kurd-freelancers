@@ -47,9 +47,7 @@ function Jobs() {
   const handleFilter = async e => {
     e.preventDefault();
 
-    console.log(tag, location);
-
-    if (tag == '' && location == '') {
+    if (tag === '' && location === '') {
       toast.warn('Please at least provide one filter ', {
         position: 'top-right',
         autoClose: 4000,
@@ -63,7 +61,7 @@ function Jobs() {
     }
     const resp = await axios.get(`/api/posts?location=${location}&tag=${tag}`);
     setPosts(resp.data.data);
-    console.log(resp.data);
+
     setTag('');
     setLocation('');
   };
