@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Button, CircularProgress, MenuItem, TextField} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
+import {toast} from 'react-toastify';
 
 import jobs from '../assets/img/jobs.svg';
 import Card from '../components/Card';
@@ -48,7 +49,16 @@ function Jobs() {
 
     console.log(tag, location);
 
-    if (tag == '' || location === '') {
+    if (tag == '' && location == '') {
+      toast.warn('Please at least provide one filter ', {
+        position: 'top-right',
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return;
     }
     const resp = await axios.get(`/api/posts?location=${location}&tag=${tag}`);
@@ -138,9 +148,14 @@ function Jobs() {
 
           <section className='my-24'>
             <div>
-              <h1 className='text-4xl  text-center text-gray-800 font-semibold pb-4'>
+              <h1 className='text-4xl  text-center text-gray-800 font-semibold pb-2'>
                 Jobs
               </h1>
+              {posts && (
+                <h3 className='text-3xl text-center text-gray-600 pb-3'>
+                  Total Job Result: {posts.length}
+                </h3>
+              )}
               <div className='h-0.5 bg-gray-400'></div>
             </div>
 
