@@ -1,17 +1,29 @@
 import React, {useState, useEffect} from 'react';
-import {CircularProgress, MenuItem, TextField} from '@material-ui/core';
+import {Button, CircularProgress, MenuItem, TextField} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
 
 import jobs from '../assets/img/jobs.svg';
 import Card from '../components/Card';
 import axios from '../axios';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(0),
+      height: '20px',
+    },
+  },
+}));
+
 function Jobs() {
-  const [tag, setTag] = useState('Web Develper');
-  const [location, setLocation] = useState('Erbil');
+  const [tag, setTag] = useState('');
+  const [location, setLocation] = useState('');
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const [locations, setLocations] = useState([]);
   const [tags, setTags] = useState([]);
+
+  const classes = useStyles();
 
   useEffect(() => {
     const getData = async () => {
@@ -31,12 +43,19 @@ function Jobs() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleChange = event => {
-    setTag(event.target.value);
-  };
+  const handleFilter = async e => {
+    e.preventDefault();
 
-  const handleLocation = event => {
-    setLocation(event.target.value);
+    console.log(tag, location);
+
+    if (tag == '' || location === '') {
+      return;
+    }
+    const resp = await axios.get(`/api/posts?location=${location}&tag=${tag}`);
+    setPosts(resp.data.data);
+    console.log(resp.data);
+    setTag('');
+    setLocation('');
   };
 
   return (
@@ -64,48 +83,57 @@ function Jobs() {
       ) : (
         <React.Fragment>
           <section className='mt-24'>
-            <div className='grid grid-cols-3 gap-12'>
-              <div>
-                <TextField
-                  id='utlined-select-courrenc'
-                  select
-                  fullWidth={true}
-                  label='Job Type'
-                  value={tag}
-                  onChange={handleChange}
-                  variant='outlined'
-                >
-                  {tags.map(option => (
-                    <MenuItem key={option.id} value={option.name}>
-                      {option.name}
-                    </MenuItem>
-                  ))}
-                </TextField>
+            <form className={classes.root} onSubmit={handleFilter}>
+              <div className='grid grid-cols-3 gap-12'>
+                <div>
+                  <TextField
+                    id='tag'
+                    select
+                    fullWidth={true}
+                    label='Job Type'
+                    value={tag}
+                    onChange={e => setTag(e.target.value)}
+                    variant='outlined'
+                  >
+                    <MenuItem value={''}>Choose a Tag</MenuItem>
+                    {tags.map(option => (
+                      <MenuItem key={option.id} value={option.name}>
+                        {option.name}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </div>
+                <div>
+                  <TextField
+                    id='location'
+                    select
+                    fullWidth={true}
+                    label='Location'
+                    value={location}
+                    onChange={e => setLocation(e.target.value)}
+                    variant='outlined'
+                  >
+                    <MenuItem value={''}>Choose a Loaction</MenuItem>
+                    {locations.map(option => (
+                      <MenuItem key={option.name} value={option.name}>
+                        {option.name}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </div>
+
+                <div>
+                  <Button
+                    type='submit'
+                    variant='contained'
+                    color='primary'
+                    size='large'
+                  >
+                    Filter
+                  </Button>
+                </div>
               </div>
-              <div>
-                <TextField
-                  id='outlined-select-currency'
-                  select
-                  fullWidth={true}
-                  label='Location'
-                  value={location}
-                  onChange={handleLocation}
-                  variant='outlined'
-                >
-                  {locations.map(option => (
-                    <MenuItem key={option.name} value={option.name}>
-                      {option.name}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </div>
-              <div>
-                <button className='px-12 py-3  mr-5 bg-blue-400 text-white text-xl rounded-lg'>
-                  {' '}
-                  Search
-                </button>
-              </div>
-            </div>
+            </form>
           </section>
 
           <section className='my-24'>
