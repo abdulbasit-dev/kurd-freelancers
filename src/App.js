@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {ToastContainer} from 'react-toastify';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -18,6 +19,7 @@ function App() {
   return (
     <Router>
       <div className=' flex flex-col h-screen'>
+        <ToastContainer />
         <div className='flex-1'>
           <Switch>
             <Route path='/' exact>
@@ -51,12 +53,12 @@ function App() {
             <Route path='/signin'>
               <Header />
               <SignIn />
-              <Footer className="xl:absolute" />
+              <Footer className='xl:absolute' />
             </Route>
             <Route path='/register'>
               <Header />
               <Singnup />
-              <Footer className="xl:absolute" />
+              <Footer className='xl:absolute' />
             </Route>
             <Route path='/profile/:userId'>
               <Header />
