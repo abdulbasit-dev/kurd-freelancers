@@ -26,6 +26,7 @@ const SignIn = () => {
       password,
     };
     const resp = await axios.post('/api/login', obj);
+    //if respose has error show error
     if (resp.data.error) {
       toast.error(resp.data.message, {
         position: 'top-right',
