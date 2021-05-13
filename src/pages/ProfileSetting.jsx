@@ -440,9 +440,8 @@ const ProfileSetting = () => {
               />
               <div className="flex justify-end mt-4">
                 <button
-                  className={`p-2 bg-red-700 rounded-xl  hover:bg-red-500 px-10 text-white  ${
-                    edit.editing ? "hiden" : ""
-                  }`}
+                  className={`p-2 bg-red-700 rounded-xl  hover:bg-red-500 px-10 text-white  ${edit.editing ? "hiden" : ""
+                    }`}
                 >
                   Delete
                 </button>

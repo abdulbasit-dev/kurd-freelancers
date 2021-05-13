@@ -35,7 +35,7 @@ function Footer() {
               <Link to="/">How KurdFreelancer Works</Link>
             </li>
             <li className="mt-2 hover:underline">
-              <Link  to="/">Why KurdFreelancer</Link>
+              <Link to="/">Why KurdFreelancer</Link>
             </li>
           </ul>
         </div>
@@ -54,7 +54,7 @@ function Footer() {
           <ul className="text-white flex flex-col">
             <h2 className="text-xl font-bold">Policies</h2>
             <li className="mt-2 hover:underline">
-              <Link to="ippolicy">IP Policy</Link> 
+              <Link to="ippolicy">IP Policy</Link>
             </li>
             <li className="mt-2 hover:underline">
               <Link to="privacypolicy">Privacy Policy </Link>
@@ -69,14 +69,14 @@ function Footer() {
             <h2 className="text-xl font-bold">Connect With Us</h2>
             <div className="flex justify-between">
               <Link className="w-12 h-12">
-              <img src={FacebookLogo} alt="facebook logo " />
-            </Link>
-            <Link className="w-12 h-12">
-              <img src={GmailLogo} alt="facebook logo" />
-            </Link>
-            <Link className="w-12 h-12">
-              <img src={LinkedinLogo} alt="facebook logo" />
-            </Link>
+                <img src={FacebookLogo} alt="facebook logo " />
+              </Link>
+              <Link className="w-12 h-12">
+                <img src={GmailLogo} alt="facebook logo" />
+              </Link>
+              <Link className="w-12 h-12">
+                <img src={LinkedinLogo} alt="facebook logo" />
+              </Link>
             </div>
           </ul>
         </div>
