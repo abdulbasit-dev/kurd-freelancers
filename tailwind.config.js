@@ -14,7 +14,11 @@ module.exports = {
         72: '18rem',
         80: '20rem',
         96: '24rem',
+        97: '30rem',
         98: '36rem',
+        100: '40rem',
+        120: '50rem',
+        'max': '70rem'
       },
       colors: {
         cover: '#0076CB',
@@ -28,7 +32,7 @@ module.exports = {
         '3/4': '75%',
       },
       maxWidth: {
-        '1/2':'30%'
+        '1/2': '30%'
       },
     },
   },

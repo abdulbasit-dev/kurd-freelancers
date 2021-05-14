@@ -9438,6 +9438,13 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
+react-css-dropdown@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-css-dropdown/-/react-css-dropdown-1.1.2.tgz#3ced37ecfbed0c51cd3fa3205ba4bb74abb92cce"
+  integrity sha512-bJ5jS1ewo68GacfziWYjaDRJsqhwvzsXaZRFcdpV6ZGv4jjZM7NnUPNCJIXw6Mm6P54PdHzdWSwGGWqWA5WRxQ==
+  dependencies:
+    clsx "^1.1.1"
+
 react-dev-utils@^11.0.1:
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-11.0.4.tgz#a7ccb60257a1ca2e0efe7a83e38e6700d17aa37a"
