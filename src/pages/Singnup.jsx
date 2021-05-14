@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Button, TextField} from '@material-ui/core';
 import axios from '../axios';
 
@@ -7,14 +7,18 @@ import FacebookLogo from './../assets/img/facebook.svg';
 import GoogleLogo from './../assets/img/google.svg';
 import LinkedInLogo from './../assets/img/linkedin.svg';
 import GithubLogo from './../assets/img/github.svg';
+import {AuthContext, ACTIONS} from '../AuthContext';
+import {useHistory} from 'react-router-dom';
 
 const Singnup = () => {
+  const [state, dispatch] = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const history = useHistory();
 
   const singnup = async e => {
     e.preventDefault();
@@ -31,12 +35,15 @@ const Singnup = () => {
     }
 
     const resp = await axios.post('/api/register', userInfo);
+    dispatch({type: ACTIONS.USER, user: resp.data});
     setEmail('');
     setPassword('');
     setFullName('');
     setConfirmPassword('');
     setError(false);
     setErrorMessage('');
+    //redirect to home
+    history.push('/');
   };
 
   return (

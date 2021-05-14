@@ -18,7 +18,6 @@ const SignIn = () => {
 
   const login = async e => {
     e.preventDefault();
-    console.log('Sd');
     const obj = {
       email,
       password,
