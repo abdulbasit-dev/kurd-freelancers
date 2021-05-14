@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 function Home() {
   return (
-    <div>
-      <h1 className="text-3xl">Home Page</h1>
+    <div className='mt-20'>
+      <h1 className='text-3xl'>Home Page</h1>
     </div>
   );
 }
