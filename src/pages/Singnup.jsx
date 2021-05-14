@@ -12,6 +12,9 @@ const Singnup = () => {
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const singnup = async e => {
     e.preventDefault();
@@ -20,9 +23,20 @@ const Singnup = () => {
       email,
       password,
     };
+    if (password !== confirmPassword) {
+      setError(true);
+      setErrorMessage('Password dose not match');
+      setConfirmPassword('');
+      return;
+    }
 
     const resp = await axios.post('/api/register', userInfo);
-    console.log(resp.data);
+    setEmail('');
+    setPassword('');
+    setFullName('');
+    setConfirmPassword('');
+    setError(false);
+    setErrorMessage('');
   };
 
   return (
@@ -125,6 +139,8 @@ const Singnup = () => {
               </div>
               <div className='w-full tablet:w-96'>
                 <TextField
+                  value={confirmPassword}
+                  onChange={e => setConfirmPassword(e.target.value)}
                   variant='outlined'
                   margin='normal'
                   required
@@ -133,6 +149,8 @@ const Singnup = () => {
                   label='Confirm Password'
                   name='confirmpassword'
                   type='password'
+                  error={error && true}
+                  helperText={errorMessage}
                 />
               </div>
               <div className='flex mt-8 mb-10'>
