@@ -25,6 +25,31 @@ import Setup from './pages/Setup';
 function App() {
   const [state, dispatch] = useContext(AuthContext);
 
+  // useEffect(() => {
+  //   const storedData = JSON.parse(window.localStorage.getItem('userData'));
+  //   if (
+  //     storedData &&
+  //     storedData.token &&
+  //     new Date(storedData.expiration) > new Date()
+  //   ) {
+  //     login(
+  //       storedData.userId,
+  //       storedData.token,
+  //       new Date(storedData.expiration)
+  //     );
+  //   }
+  // }, [login]);
+
+  // useEffect(() => {
+  //   if (token && tokenExpirationDate) {
+  //     const remainingTime =
+  //       tokenExpirationDate.getTime() - new Date().getTime();
+  //     logoutTimer = setTimeout(logout, remainingTime);
+  //   } else {
+  //     clearTimeout(logoutTimer);
+  //   }
+  // }, [token, logout, tokenExpirationDate]);
+
   console.log(state.user);
 
   console.log(!!state.user.name);
