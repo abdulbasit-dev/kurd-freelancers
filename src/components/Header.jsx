@@ -9,7 +9,7 @@ function Header() {
   const [state, dispatch] = useContext(AuthContext);
 
   return (
-    <header className='shadow  py-2'>
+    <header className='shadow  py-2 z-20  w-full fixed bg-white'>
       <div className='container flex flex-wrap justify-between  flex-col md:flex-row items-center'>
         <div className='flex items-center '>
           <Link to='/'>

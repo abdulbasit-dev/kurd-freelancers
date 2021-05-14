@@ -1,0 +1,28 @@
+{
+    "goals": [
+        {
+            "title": "Title",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo nam tempore possimus recusandae odit ratione aut? Incidunt accusantium possimus explicabo."
+        },
+        {
+            "title": "Title",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo nam tempore possimus recusandae odit ratione aut? Incidunt accusantium possimus explicabo."
+        },
+        {
+            "title": "Title",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo nam tempore possimus recusandae odit ratione aut? Incidunt accusantium possimus explicabo."
+        }
+    ],
+    "teamInfo": {
+        "location": "9094 Bay Meadows Street Conyers, GA 30012",
+        "phoneNumber": [
+            "+964 750 123 4567",
+            "+964 750 123 4567"
+        ],
+        "emails": [
+            "office@mail.com",
+            "support@mail.com"
+        ],
+        "message": "for any problem and technical issues please infom us or leave a message"
+    }
+}
