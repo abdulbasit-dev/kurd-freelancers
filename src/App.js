@@ -20,6 +20,7 @@ import Singnup from './pages/Singnup';
 import PostJob from './pages/PostJob';
 import Jobs from './pages/Jobs';
 import JobInfo from './pages/JobInfo';
+import Setup from './pages/Setup';
 
 function App() {
   const [state, dispatch] = useContext(AuthContext);
@@ -52,7 +53,11 @@ function App() {
           <JobInfo />
           <Footer />
         </Route>
-
+        <Route path='/setup' exact>
+          <Header />
+          <Setup />
+          <Footer />
+        </Route>
         <Route path='/profile-setting' exact>
           <Header />
           <ProfileSetting />
@@ -71,6 +76,7 @@ function App() {
         <Route path='/' exact>
           <Header />
           <Home />
+          <Footer />
         </Route>
         <Route path='/jobs' exact>
           <Header />
@@ -82,6 +88,7 @@ function App() {
           <JobInfo />
           <Footer />
         </Route>
+
         <Route path='/about' exact>
           <Header />
           <About />
@@ -102,10 +109,7 @@ function App() {
           <Profile />
           <Footer />
         </Route>
-        <Route>
-          <Page404 />
-          <Footer />
-        </Route>
+        <Redirect to='/' />
       </Switch>
     );
   }

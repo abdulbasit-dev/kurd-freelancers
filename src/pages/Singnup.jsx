@@ -42,8 +42,8 @@ const Singnup = () => {
     setConfirmPassword('');
     setError(false);
     setErrorMessage('');
-    //redirect to home
-    history.push('/');
+    //redirect to setup profile
+    history.push('/setup');
   };
 
   return (

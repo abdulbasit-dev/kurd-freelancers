@@ -37,7 +37,21 @@ function Header() {
         <div>
           {!!state.user.name ? (
             <ul className='flex font-medium items-center'>
-              <Avatar alt={state.user.name} src='/static/images/avatar/1.jpg' />
+              <Link to={`/profile/${state.user.id}`}>
+                <Avatar
+                  alt={state.user.name}
+                  src='/static/images/avatar/1.jpg'
+                />
+              </Link>
+
+              <li>
+                <Link
+                  to={`/profile/${state.user.id}`}
+                  className='ml-5 hover:text-blue-600'
+                >
+                  {state.user.name}
+                </Link>
+              </li>
             </ul>
           ) : (
             <ul className='flex font-medium items-center'>
