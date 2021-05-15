@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import {ToastContainer} from 'react-toastify';
 
-import {AuthContext} from './AuthContext';
+import {ACTIONS, AuthContext} from './AuthContext';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import About from './pages/About';
@@ -25,20 +25,14 @@ import Setup from './pages/Setup';
 function App() {
   const [state, dispatch] = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   const storedData = JSON.parse(window.localStorage.getItem('userData'));
-  //   if (
-  //     storedData &&
-  //     storedData.token &&
-  //     new Date(storedData.expiration) > new Date()
-  //   ) {
-  //     login(
-  //       storedData.userId,
-  //       storedData.token,
-  //       new Date(storedData.expiration)
-  //     );
-  //   }
-  // }, [login]);
+  useEffect(() => {
+    const storedData = JSON.parse(window.localStorage.getItem('userData'));
+    if (storedData) {
+      dispatch({type: ACTIONS.USER, user: storedData['userData']});
+    }
+  }, [state]);
+
+  console.log('state', state);
 
   // useEffect(() => {
   //   if (token && tokenExpirationDate) {
@@ -50,9 +44,9 @@ function App() {
   //   }
   // }, [token, logout, tokenExpirationDate]);
 
-  console.log(state.user);
+  // console.log(state.user);
 
-  console.log(!!state.user.name);
+  // console.log(!!state.user.name);
 
   let routes;
   if (!!state.user.name) {
@@ -92,7 +86,9 @@ function App() {
           <Profile />
           <Footer />
         </Route>
-        <Redirect to='/' />
+        <Route>
+          <Page404 />
+        </Route>
       </Switch>
     );
   } else {
@@ -134,7 +130,9 @@ function App() {
           <Profile />
           <Footer />
         </Route>
-        <Redirect to='/' />
+        <Route>
+          <Page404 />
+        </Route>
       </Switch>
     );
   }
