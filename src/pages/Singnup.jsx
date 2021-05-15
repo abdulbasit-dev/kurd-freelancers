@@ -7,11 +7,11 @@ import FacebookLogo from './../assets/img/facebook.svg';
 import GoogleLogo from './../assets/img/google.svg';
 import LinkedInLogo from './../assets/img/linkedin.svg';
 import GithubLogo from './../assets/img/github.svg';
-import {AuthContext, ACTIONS} from '../AuthContext';
+import {AuthContext} from '../AuthContext';
 import {useHistory} from 'react-router-dom';
 
 const Singnup = () => {
-  const [state, dispatch] = useContext(AuthContext);
+  const auth = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [password, setPassword] = useState('');
@@ -35,7 +35,7 @@ const Singnup = () => {
     }
 
     const resp = await axios.post('/api/register', userInfo);
-    dispatch({type: ACTIONS.USER, user: resp.data});
+    auth.login(resp.data, resp.data.token);
     setEmail('');
     setPassword('');
     setFullName('');

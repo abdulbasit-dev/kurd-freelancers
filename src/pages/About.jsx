@@ -5,7 +5,7 @@ import data from './../staticData/staticData.json';
 import location from './../assets/img/locartion.svg';
 import phone from './../assets/img/phone.svg';
 import mail from '../assets/img/mail.svg';
-console.log(data);
+
 function About() {
   return (
     <div className='mt-20  md:mt-0 flex flex-col justify-center items-center '>

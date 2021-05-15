@@ -1,47 +1,48 @@
-import React, {createContext, useReducer} from 'react';
+import React, {createContext, useCallback, useState} from 'react';
 
 export const AuthContext = createContext();
 
-const initialState = {
-  user: {},
-};
-
-export const ACTIONS = {
-  USER: 'USER',
-};
-
-function reducer(state, action) {
-  switch (action.type) {
-    case ACTIONS.USER:
-      return {...state, user: action.user};
-
-    default:
-      return state;
-  }
-}
-
 function AuthProvider(props) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [token, setToken] = useState(false);
+  const [user, setUser] = useState(null);
+  const [tokenExpirationDate, setTokenExpirationDate] = useState();
 
-  // const login = useCallback((uid, token, expirationDate) => {
-  //   setToken(token);
-  //   setUserId(uid);
-  //   //genrate one houre from future
-  //   const tokenExpirationDate =
-  //     expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
-  //   setTokenExpirationDate(tokenExpirationDate);
-  //   window.localStorage.setItem(
-  //     'userData',
-  //     JSON.stringify({
-  //       expiration: tokenExpirationDate.toISOString(),
-  //       userId: uid,
-  //       token,
-  //     })
-  //   );
-  // }, []);
+  const login = useCallback((user, token = 'null', expirationDate) => {
+    setToken(token);
+    setUser(user);
+    //genrate one houre from future
+    const tokenExpirationDate =
+      expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+    setTokenExpirationDate(tokenExpirationDate);
+    window.localStorage.setItem(
+      'user',
+      JSON.stringify({
+        expiration: tokenExpirationDate.toISOString(),
+        user,
+        token,
+      })
+    );
+  }, []);
+
+  const logout = useCallback(() => {
+    console.log('logout run');
+    setToken(false);
+    setUser(null);
+    setTokenExpirationDate(null);
+    localStorage.removeItem('user');
+  }, []);
 
   return (
-    <AuthContext.Provider value={[state, dispatch]}>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: !!token,
+        token,
+        login,
+        logout,
+        user,
+        tokenExpirationDate,
+      }}
+    >
       {props.children}
     </AuthContext.Provider>
   );
