@@ -6,7 +6,7 @@ import logo from '../assets/img/logo.svg';
 import {Avatar} from '@material-ui/core';
 
 function Header() {
-  const auth = useContext(AuthContext);
+  const {isLoggedIn, logout, user} = useContext(AuthContext);
 
   return (
     <header className='shadow  py-2 z-20  w-full fixed bg-white'>
@@ -35,19 +35,25 @@ function Header() {
           </ul>
         </div>
         <div>
-          {auth.userId ? (
+          {isLoggedIn ? (
             <ul className='flex font-medium items-center'>
-              <Link to={`/profile/${auth.userId}`}>
-                <Avatar alt={'karwan'} src='/static/images/avatar/1.jpg' />
+              <Link to={`/profile/${user.id}`}>
+                <Avatar alt={user.name} src='/static/images/avatar/1.jpg' />
               </Link>
 
               <li>
                 <Link
-                  to={`/profile/${auth.userId}`}
-                  className='ml-5 hover:text-blue-600'
+                  to={`/profile/${user.id}`}
+                  className='ml-5 hover:text-blue-600 '
                 >
-                  {'karwan'}
+                  {user.name}
                 </Link>
+              </li>
+              <li
+                className='ml-5 hover:text-blue-600 cursor-pointor'
+                onClick={() => logout()}
+              >
+                Logout
               </li>
             </ul>
           ) : (

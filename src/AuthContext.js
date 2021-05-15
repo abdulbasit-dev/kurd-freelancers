@@ -4,31 +4,32 @@ export const AuthContext = createContext();
 
 function AuthProvider(props) {
   const [token, setToken] = useState(false);
-  const [userId, setUserId] = useState(null);
+  const [user, setUser] = useState(null);
   const [tokenExpirationDate, setTokenExpirationDate] = useState();
 
-  const login = useCallback((uid, token = 'null', expirationDate) => {
+  const login = useCallback((user, token = 'null', expirationDate) => {
     setToken(token);
-    setUserId(uid);
+    setUser(user);
     //genrate one houre from future
     const tokenExpirationDate =
       expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
     setTokenExpirationDate(tokenExpirationDate);
     window.localStorage.setItem(
-      'userData',
+      'user',
       JSON.stringify({
         expiration: tokenExpirationDate.toISOString(),
-        userId: uid,
+        user,
         token,
       })
     );
   }, []);
 
   const logout = useCallback(() => {
+    console.log('logout run');
     setToken(false);
-    setUserId(null);
+    setUser(null);
     setTokenExpirationDate(null);
-    localStorage.removeItem('userData');
+    localStorage.removeItem('user');
   }, []);
 
   return (
@@ -38,7 +39,7 @@ function AuthProvider(props) {
         token,
         login,
         logout,
-        userId,
+        user,
         tokenExpirationDate,
       }}
     >

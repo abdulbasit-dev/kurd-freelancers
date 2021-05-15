@@ -1,13 +1,8 @@
 import React, {useContext, useEffect} from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {ToastContainer} from 'react-toastify';
 
-import {ACTIONS, AuthContext} from './AuthContext';
+import {AuthContext} from './AuthContext';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import About from './pages/About';
@@ -22,36 +17,42 @@ import Jobs from './pages/Jobs';
 import JobInfo from './pages/JobInfo';
 import Setup from './pages/Setup';
 
+let logoutTimer;
 function App() {
-  const {isLoggedIn, token, userId, login, tokenExpirationDate, logout} =
+  const {isLoggedIn, token, user, login, tokenExpirationDate, logout} =
     useContext(AuthContext);
-  console.log('is Logged in=>>> ' + isLoggedIn, 'userId =>>> ', userId);
-  console.log('token=>>> ' + token);
+  console.log(
+    '\n=========================',
+    'is Logged in=>>> ' + isLoggedIn,
+    '\nuser =>>> ',
+    user,
+    '\ntoken=>>> ' + token,
+    '\n========================='
+  );
 
   useEffect(() => {
-    const storedData = JSON.parse(window.localStorage.getItem('userData'));
+    const storedData = JSON.parse(window.localStorage.getItem('user'));
+    console.log('useEffect render');
 
     if (storedData) {
-      login(
-        storedData.userId,
-        storedData.token,
-        new Date(storedData.expiration)
-      );
+      login(storedData.user, storedData.token, new Date(storedData.expiration));
     }
   }, [login]);
 
-  // useEffect(() => {
-  //   if (token && tokenExpirationDate) {
-  //     const remainingTime =
-  //       tokenExpirationDate.getTime() - new Date().getTime();
-  //     logoutTimer = setTimeout(logout, remainingTime);
-  //   } else {
-  //     clearTimeout(logoutTimer);
-  //   }
-  // }, [token, logout, tokenExpirationDate]);
+  console.log('app render');
+
+  useEffect(() => {
+    if (token && tokenExpirationDate) {
+      const remainingTime =
+        tokenExpirationDate.getTime() - new Date().getTime();
+      logoutTimer = setTimeout(logout, remainingTime);
+    } else {
+      clearTimeout(logoutTimer);
+    }
+  }, [token, logout, tokenExpirationDate]);
 
   let routes;
-  if (userId) {
+  if (token) {
     routes = (
       <Switch>
         <Route path='/' exact>
@@ -86,6 +87,11 @@ function App() {
         <Route path='/profile/:userId'>
           <Header />
           <Profile />
+          <Footer />
+        </Route>
+        <Route path='/about' exact>
+          <Header />
+          <About />
           <Footer />
         </Route>
         <Route>

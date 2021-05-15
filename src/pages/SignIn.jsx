@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Button, TextField} from '@material-ui/core';
 import {toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {useHistory} from 'react-router';
 
 import axios from '../axios';
+import {AuthContext} from '../AuthContext';
+import 'react-toastify/dist/ReactToastify.css';
 
 //images
 import FacebookLogo from './../assets/img/facebook.svg';
@@ -12,6 +14,9 @@ import LinkedInLogo from './../assets/img/linkedin.svg';
 import GithubLogo from './../assets/img/github.svg';
 
 const SignIn = () => {
+  const auth = useContext(AuthContext);
+  const history = useHistory();
+
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   // const [error, setError] = useState('');
@@ -35,7 +40,8 @@ const SignIn = () => {
         progress: undefined,
       });
     }
-    console.log(resp.data);
+    auth.login(resp.data.user, resp.data.access_token);
+    history.push(`/profile/${resp.data.user.id}`);
   };
 
   return (
