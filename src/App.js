@@ -23,16 +23,22 @@ import JobInfo from './pages/JobInfo';
 import Setup from './pages/Setup';
 
 function App() {
-  const [state, dispatch] = useContext(AuthContext);
+  const {isLoggedIn, token, userId, login, tokenExpirationDate, logout} =
+    useContext(AuthContext);
+  console.log('is Logged in=>>> ' + isLoggedIn, 'userId =>>> ', userId);
+  console.log('token=>>> ' + token);
 
   useEffect(() => {
     const storedData = JSON.parse(window.localStorage.getItem('userData'));
-    if (storedData) {
-      dispatch({type: ACTIONS.USER, user: storedData['userData']});
-    }
-  }, [state]);
 
-  console.log('state', state);
+    if (storedData) {
+      login(
+        storedData.userId,
+        storedData.token,
+        new Date(storedData.expiration)
+      );
+    }
+  }, [login]);
 
   // useEffect(() => {
   //   if (token && tokenExpirationDate) {
@@ -44,12 +50,8 @@ function App() {
   //   }
   // }, [token, logout, tokenExpirationDate]);
 
-  // console.log(state.user);
-
-  // console.log(!!state.user.name);
-
   let routes;
-  if (!!state.user.name) {
+  if (userId) {
     routes = (
       <Switch>
         <Route path='/' exact>

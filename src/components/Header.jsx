@@ -6,7 +6,7 @@ import logo from '../assets/img/logo.svg';
 import {Avatar} from '@material-ui/core';
 
 function Header() {
-  const [state, dispatch] = useContext(AuthContext);
+  const auth = useContext(AuthContext);
 
   return (
     <header className='shadow  py-2 z-20  w-full fixed bg-white'>
@@ -35,21 +35,18 @@ function Header() {
           </ul>
         </div>
         <div>
-          {!!state.user.name ? (
+          {auth.userId ? (
             <ul className='flex font-medium items-center'>
-              <Link to={`/profile/${state.user.id}`}>
-                <Avatar
-                  alt={state.user.name}
-                  src='/static/images/avatar/1.jpg'
-                />
+              <Link to={`/profile/${auth.userId}`}>
+                <Avatar alt={'karwan'} src='/static/images/avatar/1.jpg' />
               </Link>
 
               <li>
                 <Link
-                  to={`/profile/${state.user.id}`}
+                  to={`/profile/${auth.userId}`}
                   className='ml-5 hover:text-blue-600'
                 >
-                  {state.user.name}
+                  {'karwan'}
                 </Link>
               </li>
             </ul>
