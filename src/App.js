@@ -21,25 +21,25 @@ let logoutTimer;
 function App() {
   const { isLoggedIn, token, user, login, tokenExpirationDate, logout } =
     useContext(AuthContext);
-  console.log(
-    '\n=========================',
-    'is Logged in=>>> ' + isLoggedIn,
-    '\nuser =>>> ',
-    user,
-    '\ntoken=>>> ' + token,
-    '\n========================='
-  );
+  // console.log(
+  //   '\n=========================',
+  //   'is Logged in=>>> ' + isLoggedIn,
+  //   '\nuser =>>> ',
+  //   user,
+  //   '\ntoken=>>> ' + token,
+  //   '\n========================='
+  // );
 
   useEffect(() => {
     const storedData = JSON.parse(window.localStorage.getItem('user'));
-    console.log('useEffect render');
+    // console.log('useEffect render');
 
     if (storedData) {
       login(storedData.user, storedData.token, new Date(storedData.expiration));
     }
   }, [login]);
 
-  console.log('app render');
+  // console.log('app render');
 
   useEffect(() => {
     if (token && tokenExpirationDate) {
@@ -81,7 +81,7 @@ function App() {
           <JobInfo />
           <Footer />
         </Route>
-        <Route path='/setup' exact>
+        <Route path='/setup/:userId' exact>
           <Header />
           <Setup />
           <Footer />

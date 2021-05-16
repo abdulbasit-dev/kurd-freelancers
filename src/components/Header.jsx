@@ -38,38 +38,52 @@ function Header() {
         </div>
         <div>
           {isLoggedIn ? (
-
-            <ul className='flex font-medium items-center'>
-              <Link to={`/profile/${user.id}`}>
-                <Avatar alt={user.name} src='/static/images/avatar/1.jpg' />
-              </Link>
-
-              <li>
-                <Link
-                  to={`/profile/${user.id}`}
-                  className='ml-5 hover:text-blue-600 '
-                >
-                  {user.name}
+            <>
+              <div className='flex'>
+                <Link to={`/profile/${user.id}`}>
+                  <Avatar alt={user.name} src='/static/images/avatar/1.jpg' />
                 </Link>
+                <ul className=' hidden font-medium items-center md:flex'>
+
+
+                  <li>
+                    <Link
+                      to={`/profile/${user.id}`}
+                      className='ml-5 hover:text-blue-600 '
+                    >
+                      {user.name}
+                    </Link>
+                  </li>
+                  <li
+                    className='ml-5 hover:text-blue-600 cursor-pointor mr-5'
+                    onClick={() => {
+                      logout()
+                      history.push('/')
+                    }}
+                  >
+                    Logout
               </li>
-              <li
-                className='ml-5 hover:text-blue-600 cursor-pointor'
-                onClick={() => {
-                  logout()
-                  history.push('/')
-                }}
-              >
-                Logout
-              </li>
-            </ul>
+                  <li className='px-3 py-1 mr-5 bg-primary text-white rounded-lg'>
+                    <Link to='/post-job' className=''>
+                      Post a Job
+                </Link>
+                  </li>
+                </ul>
+                <div>
+                  <BurgerMenu Urls={[{
+                    path: '/',
+                    name: 'Home',
+                  }, { path: `/profile/${user.id}`, name: `${user.name}` }, { path: '/', name: 'Logout', func: logout },
+                  {
+                    path: '/about',
+                    name: 'About',
+                  }]} />
+                </div>
+              </div>
+            </>
           ) : (
             <>
               <ul className='hidden font-medium items-center md:flex'>
-                <li className='px-3 py-1 mr-5 bg-primary text-white rounded-lg'>
-                  <Link to='/post-job' className=''>
-                    Post a Job
-                </Link>
-                </li>
                 <li>
                   <Link to='/register' className='mr-5 hover:text-blue-600'>
                     Register
@@ -83,7 +97,14 @@ function Header() {
 
               </ul>
               <div>
-                <BurgerMenu />
+                <BurgerMenu Urls={[{
+                  path: '/',
+                  name: 'Home',
+                },
+                {
+                  path: '/about',
+                  name: 'About',
+                }, { path: '/signin', name: 'Sign in' }, { path: '/register', name: 'Register' },]} />
               </div>
             </>
           )}

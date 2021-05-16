@@ -4,28 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { Divide as Hamburger } from 'hamburger-react';
 import { v4 as uuidv4 } from 'uuid';
 
-const urls = [
-    {
-        path: '/',
-        name: 'Home',
-    },
-    {
-        path: '/about',
-        name: 'About',
-    },
-    {
-        path: '/profile/1',
-        name: 'profile',
-    },
-    {
-        path: '/register',
-        name: 'Register',
-    },
-    {
-        path: '/signin',
-        name: 'Sign in',
-    },
-];
 const container = {
     hidden: {
         x: 400,
@@ -51,7 +29,7 @@ const burgervariants = {
         backgroundColor: 'rgba(0,0,0,0.75)',
     },
 };
-function BurgerMenu() {
+function BurgerMenu({ Urls }) {
     const [state, setstate] = useState(false);
     return (
         <>
@@ -73,20 +51,38 @@ function BurgerMenu() {
                 initial="hidden"
                 animate={state ? 'show' : 'hidden'}
                 transition={{ duration: 0.3 }}
-                className="fixed z-40    bg-opacity-90  bg-gray-900  right-0 top-0   h-screen w-60 ">
+                className="fixed z-40    bg-opacity-90  bg-gray-900  right-0 top-0   h-screen w-60  md:hidden">
                 <nav>
                     <ul className={` text-white pt-20 ${state ? 'flex ' : 'hidden'}    flex-col  items-center   `}>
-                        {urls.map((url) => (
-                            <li key={uuidv4()} className=" flex justify-center items-center w-20  h-20   my-3 ">
-                                <NavLink
-                                    to={url.path}
-                                    onClick={() => {
-                                        setstate(!state);
-                                    }}>
-                                    <motion.h1 className="   sm:text-md text-lg font-bold ">{url.name}</motion.h1>
-                                </NavLink>
-                            </li>
-                        ))}
+                        {Urls.map((url) => {
+
+                            if (!!url.func) {
+                                return (
+                                    <li key={uuidv4()} className=" flex justify-center items-center w-20  h-20   my-3 ">
+                                        <NavLink
+                                            to={url.path}
+                                            onClick={() => {
+                                                url.func()
+                                                setstate(!state);
+                                            }}>
+                                            <motion.h1 className="   sm:text-md text-lg font-bold ">{url.name}</motion.h1>
+                                        </NavLink>
+                                    </li>)
+                            }
+                            else
+                                return (
+                                    <li key={uuidv4()} className=" flex justify-center items-center w-20  h-20   my-3 ">
+                                        <NavLink
+                                            to={url.path}
+                                            onClick={() => {
+                                                setstate(!state);
+                                            }}>
+                                            <motion.h1 className="   sm:text-md text-lg font-bold ">{url.name}</motion.h1>
+                                        </NavLink>
+                                    </li>)
+                        }
+                        )
+                        }
                     </ul>
                 </nav>
             </motion.div>
