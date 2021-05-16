@@ -12,7 +12,7 @@ function AuthProvider(props) {
     setUser(user);
     //genrate one houre from future
     const tokenExpirationDate =
-      expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+      expirationDate || new Date(new Date().getTime() + 24000 * 60 * 60);
     setTokenExpirationDate(tokenExpirationDate);
     window.localStorage.setItem(
       'user',

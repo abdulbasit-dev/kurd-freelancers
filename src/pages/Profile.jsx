@@ -1,17 +1,31 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 
+import axios from '../axios.js';
+
+//images
 import starFull from '../assets/img/star-full.svg';
 import halfStar from '../assets/img/star-half.svg';
 import emptyStar from '../assets/img/star-empty.svg';
-
 import facebook from '../assets/img/facebook.svg';
 import github from '../assets/img/github.svg';
 import linkedin from '../assets/img/linkedin.svg';
 
 function Profile() {
   const {userId} = useParams();
+  const [userData, setUserData] = useState({});
+  const [loading, setLoading] = useState(true);
   console.log(userId);
+
+  useEffect(() => {
+    const getData = async () => {
+      const resp = await axios.get(`api/users/${userId}/profiles`);
+      console.log(resp.data);
+      setUserData(resp.data);
+      setLoading(false);
+    };
+    getData();
+  }, []);
 
   const projects = [
     {
@@ -28,13 +42,15 @@ function Profile() {
     },
   ];
 
-  return (
+  return loading ? (
+    <h1>Loading</h1>
+  ) : (
     <div className='container '>
       <div className='flex justify-between border pt-24 bg-cover px-4 pb-1 '>
         {/* avatar */}
         <img
           alt='Remy Sharp'
-          src='https://www.pngkit.com/png/detail/169-1699138_lachlan-as-an-anime-character-anime-characters-png.png'
+          src={`${process.env.REACT_APP_BACKEND_API}/${userData.profile.profile_picture}`}
           className='rounded-full h-24 w-24 '
         />
         {/* rating */}
@@ -51,7 +67,7 @@ function Profile() {
       </div>
       <div className='mt-4'>
         <div className='flex items-center '>
-          <h2 className='text-3xl'>John Doe</h2>
+          <h2 className='text-3xl'>{userData.profile.name}</h2>
           <p className='ml-4 text-green-400'>Available</p>
         </div>
         <p className='mt-2 text-gray-500 '>
@@ -70,17 +86,11 @@ function Profile() {
       <div className='mt-4 w-3/5'>
         <h2 className='text-2xl  border-b-2 border-gray-400 pb-3'>About Me:</h2>
 
-        {/* <div className="bg-gray-400 h-0.5 rounded-lg"></div> */}
-        <p className='mt-2 text-gray-500'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, error,
-          repellendus tenetur rem sequi illo atque ea corrupti numquam
-          voluptates officia maxime iusto omnis magnam ad odio delectus non
-          vitae?
-        </p>
+        <p className='mt-2 text-gray-500'>{userData.profile.about_me}</p>
       </div>
 
-      <div className='mt-16 flex items-start mb-16'>
-        <div>
+      <div className='mt-16 flex justify-between items-start mb-16'>
+        <div className=''>
           <h2 className='text-2xl '>My Projects:</h2>
           {projects.map((item, index) => (
             <div className='mt-2 pl-3' key={index}>
@@ -112,8 +122,8 @@ function Profile() {
             </div>
           ))}
         </div>
-        <div>
-          <h2 className='text-2xl '>Contact:</h2>
+        <div className='w-1/2'>
+          <h2 className='text-2xl mb-2'>Contact:</h2>
           <div className='pl-3'>
             <p>
               Email:{' '}
@@ -121,16 +131,20 @@ function Profile() {
                 href='mailto:test@gmail.com'
                 className='hover:text-blue-500 text-gray-600'
               >
-                test@gmail.com
+                {userData.email}
               </a>
             </p>
             <p className='pt-1'>
               Phone Number:{' '}
-              <span className='text-gray-600'>+964 750 444 0000</span>
+              <span className='text-gray-600'>
+                {userData.profile.phone_number}
+              </span>
             </p>
             <p className='pt-1'>
               Address:{' '}
-              <span className='text-gray-600'>Erbil,Kurdistan,Iraq</span>
+              <span className='text-gray-600'>
+                {userData.profile.city.name},Kurdistan,Iraq
+              </span>
             </p>
           </div>
           <div className='flex  items-center mt-4 pl-3'>
