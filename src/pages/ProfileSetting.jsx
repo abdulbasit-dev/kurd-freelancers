@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import changeProfilePic from "./../assets/img/changeProfilePic.svg";
 import certificate from "./../assets/img/certificates.svg";
 import cv from "./../assets/img/cv.svg";

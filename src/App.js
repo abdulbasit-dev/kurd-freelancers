@@ -1,8 +1,8 @@
-import React, {useContext, useEffect} from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import {ToastContainer} from 'react-toastify';
+import React, { useContext, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
-import {AuthContext} from './AuthContext';
+import { AuthContext } from './AuthContext';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import About from './pages/About';
@@ -19,7 +19,7 @@ import Setup from './pages/Setup';
 
 let logoutTimer;
 function App() {
-  const {isLoggedIn, token, user, login, tokenExpirationDate, logout} =
+  const { isLoggedIn, token, user, login, tokenExpirationDate, logout } =
     useContext(AuthContext);
   console.log(
     '\n=========================',
@@ -53,11 +53,17 @@ function App() {
 
   let routes;
   if (token) {
+
     routes = (
       <Switch>
         <Route path='/' exact>
           <Header />
           <Home />
+          <Footer />
+        </Route>
+        <Route path='/about' exact>
+          <Header />
+          <About />
           <Footer />
         </Route>
         <Route path='/post-job' exact>
@@ -87,11 +93,6 @@ function App() {
         <Route path='/profile/:userId'>
           <Header />
           <Profile />
-          <Footer />
-        </Route>
-        <Route path='/about' exact>
-          <Header />
-          <About />
           <Footer />
         </Route>
         <Route>
@@ -147,6 +148,7 @@ function App() {
 
   return (
     <Router>
+
       <div className=' flex flex-col h-screen'>
         <ToastContainer />
         <div className='flex-1'>{routes}</div>
