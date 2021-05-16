@@ -55,30 +55,10 @@ function App() {
   if (token) {
 
     routes = (
-      <Switch>
-        <Route path='/' exact>
-          <Header />
-          <Home />
-          <Footer />
-        </Route>
-        <Route path='/about' exact>
-          <Header />
-          <About />
-          <Footer />
-        </Route>
+      <div className='flex-1'>
         <Route path='/post-job' exact>
           <Header />
           <PostJob />
-          <Footer />
-        </Route>
-        <Route path='/jobs' exact>
-          <Header />
-          <Jobs />
-          <Footer />
-        </Route>
-        <Route path='/jobs/:jobId' exact>
-          <Header />
-          <JobInfo />
           <Footer />
         </Route>
         <Route path='/setup' exact>
@@ -90,40 +70,11 @@ function App() {
           <Header />
           <ProfileSetting />
         </Route>
-        <Route path='/profile/:userId'>
-          <Header />
-          <Profile />
-          <Footer />
-        </Route>
-        <Route>
-          <Page404 />
-        </Route>
-      </Switch>
+      </div>
     );
   } else {
     routes = (
-      <Switch>
-        <Route path='/' exact>
-          <Header />
-          <Home />
-          <Footer />
-        </Route>
-        <Route path='/jobs' exact>
-          <Header />
-          <Jobs />
-          <Footer />
-        </Route>
-        <Route path='/jobs/:jobId' exact>
-          <Header />
-          <JobInfo />
-          <Footer />
-        </Route>
-
-        <Route path='/about' exact>
-          <Header />
-          <About />
-          <Footer />
-        </Route>
+      <div className='flex-1'>
         <Route path='/signin'>
           <Header />
           <SignIn />
@@ -134,25 +85,47 @@ function App() {
           <Singnup />
           <Footer className='xl:absolute' />
         </Route>
-        <Route path='/profile/:userId'>
-          <Header />
-          <Profile />
-          <Footer />
-        </Route>
-        <Route>
-          <Page404 />
-        </Route>
-      </Switch>
+      </div>
     );
   }
 
   return (
     <Router>
+      <Switch>
+        <div className=' flex flex-col h-screen'>
+          <ToastContainer />
+          <Route path='/' exact>
+            <Header />
+            <Home />
+            <Footer />
+          </Route>
+          <Route path='/jobs' exact>
+            <Header />
+            <Jobs />
+            <Footer />
+          </Route>
+          <Route path='/jobs/:jobId' exact>
+            <Header />
+            <JobInfo />
+            <Footer />
+          </Route>
 
-      <div className=' flex flex-col h-screen'>
-        <ToastContainer />
-        <div className='flex-1'>{routes}</div>
-      </div>
+          <Route path='/about' exact>
+            <Header />
+            <About />
+            <Footer />
+          </Route>
+          <Route path='/profile/:userId'>
+            <Header />
+            <Profile />
+            <Footer />
+          </Route>
+          {routes}
+        </div>
+        <Route>
+          <Page404 />
+        </Route>
+      </Switch>
     </Router>
   );
 }
