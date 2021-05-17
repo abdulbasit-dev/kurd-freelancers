@@ -6,7 +6,7 @@ import {AuthContext} from './AuthContext';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import About from './pages/About';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import Page404 from './pages/Page404/Page404';
 import Profile from './pages/Profile';
 import SignIn from './pages/SignIn';
