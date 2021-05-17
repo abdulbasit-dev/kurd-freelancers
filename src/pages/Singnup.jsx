@@ -43,7 +43,7 @@ const Singnup = () => {
     setError(false);
     setErrorMessage('');
     //redirect to setup profile
-    history.push('/setup');
+    history.push(`/setup/${resp.data.id}`);
   };
 
   return (
