@@ -1,11 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import programming from '../../assets/img/homepage/programming.svg';
 import creativity from '../../assets/img/homepage/creativity.svg';
 import './Home.css';
 function Home() {
   return (
-    <div className='mt-20'>
+    <div className='mt-20 home'>
       <header className='page-header page-header-light bg-white'>
         <div className='page-header-content py-5 '>
           <div className='container'>
@@ -18,33 +19,35 @@ function Home() {
                   Welcome to SB UI Kit Pro, a toolkit for building beautiful web
                   interfaces, created by the development team at Start Bootstrap
                 </p>
-                <a
-                  className='btn btn-lg btn-primary font-weight-500 mr-3'
-                  href='landing-multipurpose.html'
+                <Link
+                  className='btn btn-lg btn-primary border-2 flex font-weight-500 mr-3'
+                  to='/jobs'
                 >
-                  View Demo
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='24'
-                    height='24'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    stroke-width='2'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    className='feather feather-arrow-right ml-2'
-                  >
-                    <line x1='5' y1='12' x2='19' y2='12'></line>
-                    <polyline points='12 5 19 12 12 19'></polyline>
-                  </svg>
-                </a>
-                <a
-                  className='btn btn-lg btn-primary-soft text-primary font-weight-500'
-                  href='https://docs.startbootstrap.com/sb-ui-kit-pro/quickstart'
+                  Explore Jobs
+                  <div className='w-4 h-auto'>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='100%'
+                      height='100%'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      stroke-width='2'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      className='feather feather-arrow-right ml-2'
+                    >
+                      <line x1='5' y1='12' x2='19' y2='12'></line>
+                      <polyline points='12 5 19 12 12 19'></polyline>
+                    </svg>
+                  </div>
+                </Link>
+                <Link
+                  className='border-2 border-red-500 btn btn-lg btn-primary-soft text-primary font-weight-500'
+                  to='/register'
                 >
-                  Documentation
-                </a>
+                  Register
+                </Link>
               </div>
               <div
                 className='col-lg-6 d-none d-lg-block aos-init aos-animate'
