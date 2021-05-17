@@ -16,6 +16,7 @@ import PostJob from './pages/PostJob';
 import Jobs from './pages/Jobs';
 import JobInfo from './pages/JobInfo';
 import Setup from './pages/Setup';
+import AllProfiles from './pages/AllProfiles'
 
 let logoutTimer;
 function App() {
@@ -113,6 +114,11 @@ function App() {
           <Route path='/about' exact>
             <Header />
             <About />
+            <Footer />
+          </Route>
+          <Route path='/profile' exact>
+            <Header />
+            <AllProfiles />
             <Footer />
           </Route>
           <Route path='/profile/:userId'>
