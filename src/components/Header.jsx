@@ -1,13 +1,13 @@
-import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
-import {AuthContext} from '../AuthContext';
+import { AuthContext } from '../AuthContext';
 import logo from '../assets/img/logo.svg';
-import {Avatar} from '@material-ui/core';
+import { Avatar } from '@material-ui/core';
 
 function Header() {
-  const {isLoggedIn, logout, user} = useContext(AuthContext);
-
+  const { isLoggedIn, logout, user } = useContext(AuthContext);
+  const history = useHistory()
   return (
     <header className='shadow  py-2 z-20  w-full fixed bg-white'>
       <div className='container flex flex-wrap justify-between  flex-col md:flex-row items-center'>
@@ -51,7 +51,10 @@ function Header() {
               </li>
               <li
                 className='ml-5 hover:text-blue-600 cursor-pointor'
-                onClick={() => logout()}
+                onClick={() => {
+                  logout()
+                  history.push('/')
+                }}
               >
                 Logout
               </li>

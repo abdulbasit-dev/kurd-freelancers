@@ -1,5 +1,5 @@
-import React, {useState, useContext} from 'react';
-import {Button, TextField} from '@material-ui/core';
+import React, { useState, useContext } from 'react';
+import { Button, TextField } from '@material-ui/core';
 import axios from '../axios';
 
 //images
@@ -7,8 +7,8 @@ import FacebookLogo from './../assets/img/facebook.svg';
 import GoogleLogo from './../assets/img/google.svg';
 import LinkedInLogo from './../assets/img/linkedin.svg';
 import GithubLogo from './../assets/img/github.svg';
-import {AuthContext} from '../AuthContext';
-import {useHistory} from 'react-router-dom';
+import { AuthContext } from '../AuthContext';
+import { useHistory } from 'react-router-dom';
 
 const Singnup = () => {
   const auth = useContext(AuthContext);
@@ -48,7 +48,7 @@ const Singnup = () => {
 
   return (
     <>
-      <div className='flex w-full justify-center items-center border-lightblue tablet:mt-40 mt-10 mb-10 sm:px-20 tablet:px-0'>
+      <div className='flex w-full justify-center items-center border-lightblue mt-40 mb-10 sm:px-20 tablet:px-0'>
         <div className='flex flex-col lg:flex-row tablet:w-3/5 shadow-2xl w-full '>
           <div className='flex lg:w-5/12 border bg-lightblue flex-col p-10 items-center text-white justify-center '>
             <div className='flex flex-col items-center'>
