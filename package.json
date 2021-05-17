@@ -12,6 +12,8 @@
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
     "craco": "^0.0.3",
+    "framer-motion": "^4.1.16",
+    "hamburger-react": "^2.4.1",
     "postcss": "^7.0.35",
     "react": "^17.0.1",
     "react-css-dropdown": "^1.1.2",
@@ -20,6 +22,7 @@
     "react-scripts": "4.0.1",
     "react-toastify": "^7.0.4",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
+    "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

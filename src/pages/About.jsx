@@ -9,7 +9,7 @@ import mail from '../assets/img/mail.svg';
 function About() {
   return (
     <div className='mt-20  md:mt-0 flex flex-col justify-center items-center '>
-      <div className='z-10 w-full hidden h-max rounded-full border-2 bg-transparent border-gray-500 mx-auto lg:-mt-100 xl:-mt-97 md:flex md:-mt-120   justify-center items-end z-0'>
+      <div className='z-10 w-full hidden h-max rounded-full border-2 bg-transparent border-gray-500 mx-auto lg:-mt-100 xl:-mt-97 md:flex md:-mt-120   justify-center items-end'>
         <img src={teamWork} alt='team-work' className='w-1/3  lg:mt-10 ' />
       </div>
       <div>

@@ -1,22 +1,24 @@
-import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { Avatar } from '@material-ui/core';
 
-import {AuthContext} from '../AuthContext';
+import BurgerMenu from './../components/BurgerMenu'
+import { AuthContext } from '../AuthContext';
+
 import logo from '../assets/img/logo.svg';
-import {Avatar} from '@material-ui/core';
 
 function Header() {
-  const {isLoggedIn, logout, user} = useContext(AuthContext);
-
+  const { isLoggedIn, logout, user } = useContext(AuthContext);
+  const history = useHistory()
   return (
     <header className='shadow  py-2 z-20  w-full fixed bg-white'>
-      <div className='container flex flex-wrap justify-between  flex-col md:flex-row items-center'>
+      <div className='container flex flex-wrap justify-between items-center'>
         <div className='flex items-center '>
           <Link to='/'>
             <img src={logo} alt='logo' className='mr-6' />
           </Link>
 
-          <ul className='flex font-medium'>
+          <ul className='font-medium hidden md:flex'>
             <li>
               <Link to='/' className='mr-5 hover:text-blue-600'>
                 Home
@@ -36,48 +38,79 @@ function Header() {
         </div>
         <div>
           {isLoggedIn ? (
-            <ul className='flex font-medium items-center'>
-              <Link to={`/profile/${user.id}`}>
-                <Avatar alt={user.name} src='/static/images/avatar/1.jpg' />
-              </Link>
+            <>
+              <div className='flex'>
+                <Link to={`/profile/${user.id}`}>
+                  <Avatar alt={user.name} src='/static/images/avatar/1.jpg' />
+                </Link>
+                <ul className=' hidden font-medium items-center md:flex'>
 
-              <li>
-                <Link
-                  to={`/profile/${user.id}`}
-                  className='ml-5 hover:text-blue-600 '
-                >
-                  {user.name}
+
+                  <li>
+                    <Link
+                      to={`/profile/${user.id}`}
+                      className='ml-5 hover:text-blue-600 '
+                    >
+                      {user.name}
+                    </Link>
+                  </li>
+                  <li
+                    className='ml-5 hover:text-blue-600 cursor-pointor mr-5'
+                    onClick={() => {
+                      logout()
+                      history.push('/')
+                    }}
+                  >
+                    Logout
+              </li>
+                  <li className='px-3 py-1 mr-5 bg-primary text-white rounded-lg'>
+                    <Link to='/post-job' className=''>
+                      Post a Job
                 </Link>
-              </li>
-              <li
-                className='ml-5 hover:text-blue-600 cursor-pointor'
-                onClick={() => logout()}
-              >
-                Logout
-              </li>
-            </ul>
+                  </li>
+                </ul>
+                <div>
+                  <BurgerMenu Urls={[{
+                    path: '/',
+                    name: 'Home',
+                  }, { path: `/profile/${user.id}`, name: `${user.name}` }, { path: '/', name: 'Logout', func: logout },
+                  {
+                    path: '/about',
+                    name: 'About',
+                  }]} />
+                </div>
+              </div>
+            </>
           ) : (
-            <ul className='flex font-medium items-center'>
-              <li className='px-3 py-1 mr-5 bg-primary text-white rounded-lg'>
-                <Link to='/post-job' className=''>
-                  Post a Job
+            <>
+              <ul className='hidden font-medium items-center md:flex'>
+                <li>
+                  <Link to='/register' className='mr-5 hover:text-blue-600'>
+                    Register
                 </Link>
-              </li>
-              <li>
-                <Link to='/register' className='mr-5 hover:text-blue-600'>
-                  Register
+                </li>
+                <li>
+                  <Link to='/signin' className='mr-5 hover:text-blue-600'>
+                    Sign in
                 </Link>
-              </li>
-              <li>
-                <Link to='/signin' className='mr-5 hover:text-blue-600'>
-                  Sign in
-                </Link>
-              </li>
-            </ul>
+                </li>
+
+              </ul>
+              <div>
+                <BurgerMenu Urls={[{
+                  path: '/',
+                  name: 'Home',
+                },
+                {
+                  path: '/about',
+                  name: 'About',
+                }, { path: '/signin', name: 'Sign in' }, { path: '/register', name: 'Register' },]} />
+              </div>
+            </>
           )}
         </div>
       </div>
-    </header>
+    </header >
   );
 }
 
