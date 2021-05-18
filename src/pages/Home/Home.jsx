@@ -74,11 +74,11 @@ function Home() {
         </div>
       </header>
 
-      <section class='bg-light py-20 mb-20'>
-        <div class='container'>
-          <div class='grid grid-cols-3 text-center'>
-            <div class='col-lg-4 mb-5 mb-lg-0'>
-              <div class='icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4'>
+      <section className='bg-light py-20 mb-20'>
+        <div className='container'>
+          <div className='grid grid-cols-3 text-center'>
+            <div className='col-lg-4 mb-5 mb-lg-0'>
+              <div className='icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='24'
@@ -89,7 +89,7 @@ function Home() {
                   stroke-width='2'
                   stroke-linecap='round'
                   stroke-linejoin='round'
-                  class='feather feather-layers'
+                  className='feather feather-layers'
                 >
                   <polygon points='12 2 2 7 12 12 22 7 12 2'></polygon>
                   <polyline points='2 17 12 22 22 17'></polyline>
@@ -97,13 +97,13 @@ function Home() {
                 </svg>
               </div>
               <h3>Built for developers</h3>
-              <p class='mb-0'>
+              <p className='mb-0'>
                 Our modular, block-based build system makes building your next
                 project fast and easy!
               </p>
             </div>
-            <div class='col-lg-4 mb-5 mb-lg-0'>
-              <div class='icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4'>
+            <div className='col-lg-4 mb-5 mb-lg-0'>
+              <div className='icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='24'
@@ -114,20 +114,20 @@ function Home() {
                   stroke-width='2'
                   stroke-linecap='round'
                   stroke-linejoin='round'
-                  class='feather feather-smartphone'
+                  className='feather feather-smartphone'
                 >
                   <rect x='5' y='2' width='14' height='20' rx='2' ry='2'></rect>
                   <line x1='12' y1='18' x2='12.01' y2='18'></line>
                 </svg>
               </div>
               <h3>Modern responsive design</h3>
-              <p class='mb-0'>
+              <p className='mb-0'>
                 This UI Kit is build mobile-first, meaning it is will function
                 beautifully on any device!
               </p>
             </div>
-            <div class='col-lg-4'>
-              <div class='icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4'>
+            <div className='col-lg-4'>
+              <div className='icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='24'
@@ -138,21 +138,21 @@ function Home() {
                   stroke-width='2'
                   stroke-linecap='round'
                   stroke-linejoin='round'
-                  class='feather feather-code'
+                  className='feather feather-code'
                 >
                   <polyline points='16 18 22 12 16 6'></polyline>
                   <polyline points='8 6 2 12 8 18'></polyline>
                 </svg>
               </div>
               <h3>Complete documentation</h3>
-              <p class='mb-0'>
+              <p className='mb-0'>
                 All of the layouts, page sections, components, and utilities are
                 fully covered in this products docs.
               </p>
             </div>
           </div>
         </div>
-        <div class='svg-border-rounded text-white'>
+        <div className='svg-border-rounded text-white'>
           {/* <!-- Rounded SVG Border--> */}
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -229,15 +229,15 @@ function Home() {
       >
         <path d='M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0'></path>
       </svg>
-      <section class='bg-dark py-10 mb-16'>
-        <div class='container'>
+      <section className='bg-dark py-10 mb-16'>
+        <div className='container'>
           {/* header text  */}
-          <div class='flex justify-center mb-12 text-center'>
-            <div class='w-2/3'>
-              <h2 class='text-white  text-3xl mb-4'>
+          <div className='flex justify-center mb-12 text-center'>
+            <div className='w-2/3'>
+              <h2 className='text-white  text-3xl mb-4'>
                 Save time with SB UI Kit Pro
               </h2>
-              <p class='text-white-50 text-xl mb-5'>
+              <p className='text-white-50 text-xl mb-5'>
                 Start Bootstrap's premium UI Kit beautifully and intuitively
                 extends the Bootstrap framework making it easy to build your
                 next project!
@@ -245,12 +245,12 @@ function Home() {
             </div>
           </div>
 
-          <div class='grid grid-cols-2  mt-10'>
-            <div class='mr-12 mb-16'>
-              <div class='flex items-start'>
-                <div class='icon-stack flex-shrink-0 bg-teal text-white'>
+          <div className='grid grid-cols-2  mt-10'>
+            <div className='mr-12 mb-16'>
+              <div className='flex items-start'>
+                <div className='icon-stack flex-shrink-0 bg-teal text-white'>
                   <svg
-                    class='svg-inline--fa fa-question fa-w-12'
+                    className='svg-inline--fa fa-question fa-w-12'
                     aria-hidden='true'
                     focusable='false'
                     data-prefix='fas'
@@ -266,22 +266,22 @@ function Home() {
                     ></path>
                   </svg>
                 </div>
-                <div class='ml-4'>
-                  <h5 class='text-white text-xl mb-3'>
+                <div className='ml-4'>
+                  <h5 className='text-white text-xl mb-3'>
                     What is SB UI Kit Pro?
                   </h5>
-                  <p class='text-white-50'>
+                  <p className='text-white-50'>
                     SB UI Kit Pro is a fully coded, responsive, Bootstrap based
                     UI toolkit for developers.
                   </p>
                 </div>
               </div>
             </div>
-            <div class='mr-12 mb-16'>
-              <div class='flex items-start'>
-                <div class='icon-stack flex-shrink-0 bg-teal text-white'>
+            <div className='mr-12 mb-16'>
+              <div className='flex items-start'>
+                <div className='icon-stack flex-shrink-0 bg-teal text-white'>
                   <svg
-                    class='svg-inline--fa fa-question fa-w-12'
+                    className='svg-inline--fa fa-question fa-w-12'
                     aria-hidden='true'
                     focusable='false'
                     data-prefix='fas'
@@ -297,11 +297,11 @@ function Home() {
                     ></path>
                   </svg>
                 </div>
-                <div class='ml-4'>
-                  <h5 class='text-white text-xl mb-3'>
+                <div className='ml-4'>
+                  <h5 className='text-white text-xl mb-3'>
                     What can I build with SB UI Kit Pro?
                   </h5>
-                  <p class='text-white-50'>
+                  <p className='text-white-50'>
                     Build anything you want to using this UI kit! It is
                     flexible, multipurpose, and full of tools for you to use
                     during development.
@@ -309,11 +309,11 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div class='mr-12 mb-16'>
-              <div class='flex items-start'>
-                <div class='icon-stack flex-shrink-0 bg-teal text-white'>
+            <div className='mr-12 mb-16'>
+              <div className='flex items-start'>
+                <div className='icon-stack flex-shrink-0 bg-teal text-white'>
                   <svg
-                    class='svg-inline--fa fa-question fa-w-12'
+                    className='svg-inline--fa fa-question fa-w-12'
                     aria-hidden='true'
                     focusable='false'
                     data-prefix='fas'
@@ -329,11 +329,11 @@ function Home() {
                     ></path>
                   </svg>
                 </div>
-                <div class='ml-4'>
-                  <h5 class='text-white  text-xl mb-3'>
+                <div className='ml-4'>
+                  <h5 className='text-white  text-xl mb-3'>
                     Do I get free updates?
                   </h5>
-                  <p class='text-white-50'>
+                  <p className='text-white-50'>
                     All of Start Bootstrap's premium products will come with
                     updates for feature additions, bugfixes, and other small
                     updates.
@@ -341,11 +341,11 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div class='mr-12 mb-16'>
-              <div class='flex items-start'>
-                <div class='icon-stack flex-shrink-0 bg-teal text-white'>
+            <div className='mr-12 mb-16'>
+              <div className='flex items-start'>
+                <div className='icon-stack flex-shrink-0 bg-teal text-white'>
                   <svg
-                    class='svg-inline--fa fa-question fa-w-12'
+                    className='svg-inline--fa fa-question fa-w-12'
                     aria-hidden='true'
                     focusable='false'
                     data-prefix='fas'
@@ -361,11 +361,11 @@ function Home() {
                     ></path>
                   </svg>
                 </div>
-                <div class='ml-4'>
-                  <h5 class='text-white  text-xl mb-3'>
+                <div className='ml-4'>
+                  <h5 className='text-white  text-xl mb-3'>
                     What frameworks does it integrate with?
                   </h5>
-                  <p class='text-white-50'>
+                  <p className='text-white-50'>
                     Our HTML based pro products are build with framework
                     integration in mind. The compiled code is HTML and CSS,
                     which is able to integrate with any framework.
@@ -375,7 +375,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div class='svg-border-rounded text-white'>
+        <div className='svg-border-rounded text-white'>
           {/* <!-- Rounded SVG Border--> */}
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -388,21 +388,21 @@ function Home() {
         </div>
       </section>
 
-      <section class='max-w-8xl mx-auto container bg-white pt-16'>
+      <section className='max-w-8xl mx-auto container bg-white pt-16'>
         <div>
-          <div class='flex items-center flex-col px-4'>
-            <p class='uppercase text-lg text-center text-gray-600 leading-normal'>
+          <div className='flex items-center flex-col px-4'>
+            <p className='uppercase text-lg text-center text-gray-600 leading-normal'>
               in few easy steps
             </p>
-            <h2 class='text-4xl lg:text-5xl font-extrabold text-center leading-tight text-gray-800 lg:w-7/12 md:w-9/12 pt-4'>
+            <h2 className='text-4xl lg:text-5xl font-extrabold text-center leading-tight text-gray-800 lg:w-7/12 md:w-9/12 pt-4'>
               Create Beautiful Landing Pages & Web Apps in a Jiffy
             </h2>
           </div>
-          <div class='mt-20 flex flex-wrap justify-between px-4'>
-            <div class='flex sm:w-full md:w-5/12 pb-20'>
-              <div class='w-20 h-20 relative mr-5'>
-                <div class='absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1'></div>
-                <div class='absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3'>
+          <div className='mt-20 flex flex-wrap justify-between px-4'>
+            <div className='flex sm:w-full md:w-5/12 pb-20'>
+              <div className='w-20 h-20 relative mr-5'>
+                <div className='absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1'></div>
+                <div className='absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     width='32'
@@ -421,21 +421,21 @@ function Home() {
                   </svg>
                 </div>
               </div>
-              <div class='w-10/12'>
-                <h4 class='text-lg font-bold leading-tight text-gray-800'>
+              <div className='w-10/12'>
+                <h4 className='text-lg font-bold leading-tight text-gray-800'>
                   Ready to use components
                 </h4>
-                <p class='text-base text-gray-600 leading-normal pt-2'>
+                <p className='text-base text-gray-600 leading-normal pt-2'>
                   It provides a very simple start, no need to write a lot of
                   code, you just import it and start the primitive components
                   and create the ones you need.
                 </p>
               </div>
             </div>
-            <div class='flex sm:w-full md:w-5/12 pb-20'>
-              <div class='w-20 h-20 relative mr-5'>
-                <div class='absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1'></div>
-                <div class='absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3'>
+            <div className='flex sm:w-full md:w-5/12 pb-20'>
+              <div className='w-20 h-20 relative mr-5'>
+                <div className='absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1'></div>
+                <div className='absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     width='32'
@@ -453,21 +453,21 @@ function Home() {
                   </svg>
                 </div>
               </div>
-              <div class='w-10/12'>
-                <h4 class='text-lg font-bold leading-tight text-gray-800'>
+              <div className='w-10/12'>
+                <h4 className='text-lg font-bold leading-tight text-gray-800'>
                   Hight Quality UI you can reply on
                 </h4>
-                <p class='text-base text-gray-600 leading-normal pt-2'>
+                <p className='text-base text-gray-600 leading-normal pt-2'>
                   Modify the visual appearance of your site – including colors,
                   fonts, margins and other style-related properties – with a
                   sophisticated style.
                 </p>
               </div>
             </div>
-            <div class='flex sm:w-full md:w-5/12 pb-20'>
-              <div class='w-20 h-20 relative mr-5'>
-                <div class='absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1'></div>
-                <div class='absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3'>
+            <div className='flex sm:w-full md:w-5/12 pb-20'>
+              <div className='w-20 h-20 relative mr-5'>
+                <div className='absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1'></div>
+                <div className='absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     width='32'
@@ -486,21 +486,21 @@ function Home() {
                   </svg>
                 </div>
               </div>
-              <div class='w-10/12'>
-                <h4 class='text-lg font-bold leading-tight text-gray-800'>
+              <div className='w-10/12'>
+                <h4 className='text-lg font-bold leading-tight text-gray-800'>
                   Coded by Developers for Developers
                 </h4>
-                <p class='text-base text-gray-600 leading-normal pt-2'>
+                <p className='text-base text-gray-600 leading-normal pt-2'>
                   Instead of just giving you the tools to create your own site,
                   they offer you a list of themes you can choose from. Thus a
                   handy product.
                 </p>
               </div>
             </div>
-            <div class='flex sm:w-full md:w-5/12 pb-20'>
-              <div class='w-20 h-20 relative mr-5'>
-                <div class='absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1'></div>
-                <div class='absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3'>
+            <div className='flex sm:w-full md:w-5/12 pb-20'>
+              <div className='w-20 h-20 relative mr-5'>
+                <div className='absolute top-0 right-0 bg-indigo-100 rounded w-16 h-16 mt-2 mr-1'></div>
+                <div className='absolute text-white bottom-0 left-0 bg-indigo-700 rounded w-16 h-16 flex items-center justify-center mt-2 mr-3'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     width='32'
@@ -520,11 +520,11 @@ function Home() {
                   </svg>
                 </div>
               </div>
-              <div class='w-10/12'>
-                <h4 class='text-lg font-bold leading-tight text-gray-800'>
+              <div className='w-10/12'>
+                <h4 className='text-lg font-bold leading-tight text-gray-800'>
                   The Last UI kit you’ll ever need
                 </h4>
-                <p class='text-base text-gray-600 leading-normal pt-2'>
+                <p className='text-base text-gray-600 leading-normal pt-2'>
                   We have chosen the bright color palettes that arouse the only
                   positive emotions. The kit that simply assures to be loved by
                   everyone.
