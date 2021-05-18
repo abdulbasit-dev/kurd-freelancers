@@ -1,5 +1,5 @@
-import React, {useState, useContext} from 'react';
-import {Button, TextField} from '@material-ui/core';
+import React, { useState, useContext } from 'react';
+import { Button, TextField } from '@material-ui/core';
 import axios from '../axios';
 
 //images
@@ -7,8 +7,8 @@ import FacebookLogo from './../assets/img/facebook.svg';
 import GoogleLogo from './../assets/img/google.svg';
 import LinkedInLogo from './../assets/img/linkedin.svg';
 import GithubLogo from './../assets/img/github.svg';
-import {AuthContext} from '../AuthContext';
-import {useHistory} from 'react-router-dom';
+import { AuthContext } from '../AuthContext';
+import { useHistory } from 'react-router-dom';
 
 const Singnup = () => {
   const auth = useContext(AuthContext);
@@ -35,6 +35,7 @@ const Singnup = () => {
     }
 
     const resp = await axios.post('/api/register', userInfo);
+    console.log(resp.data);
     auth.login(resp.data, resp.data.token);
     setEmail('');
     setPassword('');
