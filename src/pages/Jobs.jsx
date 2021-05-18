@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {Button, CircularProgress, MenuItem, TextField} from '@material-ui/core';
-import {makeStyles} from '@material-ui/core/styles';
-import {toast} from 'react-toastify';
+import React, { useState, useEffect } from 'react';
+import { Button, CircularProgress, MenuItem, TextField } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { toast } from 'react-toastify';
 
 import jobs from '../assets/img/jobs.svg';
 import Card from '../components/Card';
@@ -36,6 +36,7 @@ function Jobs() {
       setLocations(locations.data.data);
       setTags(tags.data.data);
       setLoading(false);
+      console.log(posts.data);
     };
     getData();
   }, []);
@@ -67,7 +68,7 @@ function Jobs() {
   };
 
   return (
-    <div className='container'>
+    <div className='container mt-10'>
       <section className='mt-10 grid md:grid-cols-2 fl'>
         <div className='flex flex-col self-center pr-12'>
           <h1 className='mb-6 capitalize text-5xl '>
@@ -164,9 +165,9 @@ function Jobs() {
                   <Card
                     key={index}
                     path={`jobs/${post.id}`}
-                    name='John Doe'
-                    tags={['test', 'test', 'test']}
-                    description=' Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aperiam ipsam dicta impedit pariatur?'
+                    name={post.title}
+                    tags={[post.tag.name]}
+                    description={post.description.substring(0, 100).concat('...')}
                   />
                 ))}
             </div>

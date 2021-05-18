@@ -3,7 +3,7 @@ import { Button, CircularProgress, MenuItem, TextField } from '@material-ui/core
 import { makeStyles } from '@material-ui/core/styles';
 import { toast } from 'react-toastify';
 
-import jobs from '../assets/img/profile.svg';
+import jobs from '../assets/img/jobs.svg';
 import Card from '../components/Card';
 import axios from '../axios';
 
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function AllProfiles() {
+function Jobs() {
     const [tag, setTag] = useState('');
     const [location, setLocation] = useState('');
     const [loading, setLoading] = useState(true);
@@ -28,9 +28,10 @@ function AllProfiles() {
 
     useEffect(() => {
         const getData = async () => {
-            const posts = await axios.get('api/posts');
+            const posts = await axios.get('api/user_profiles');
             const locations = await axios.get('api/cities');
             const tags = await axios.get('api/tags');
+
             setPosts(posts.data.data);
             setLocations(locations.data.data);
             setTags(tags.data.data);
@@ -38,7 +39,7 @@ function AllProfiles() {
         };
         getData();
     }, []);
-
+    console.log(posts);
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -88,7 +89,7 @@ function AllProfiles() {
                     <CircularProgress size={100} color='secondary' thickness={2} />
                 </div>
             ) : (
-                <>
+                <React.Fragment>
                     <section className='mt-24'>
                         <form className={classes.root} onSubmit={handleFilter}>
                             <div className='grid grid-cols-3 gap-12'>
@@ -159,21 +160,23 @@ function AllProfiles() {
                         <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12'>
                             {posts &&
                                 !loading &&
-                                posts.map((onePost, index) => (
-                                    <Card
-                                        key={onePost.id}
-                                        path={`jobs/${onePost.id}`}
-                                        name={onePost.name}
-                                        tags={[onePost]}
-                                        description={onePost.description}
-                                    />
-                                ))}
+                                posts.map((post, index) => {
+                                    console.log(post);
+
+                                    return (<Card
+                                        key={index}
+                                        path={`jobs/${post.id}`}
+                                        name={post.username}
+                                        tags={['test']}
+                                        description={post.profile.about_me.substring(0, 100).concat('...')}
+                                    />)
+                                })}
                         </div>
                     </section>
-                </>
+                </React.Fragment>
             )}
         </div>
     );
 }
 
-export default AllProfiles;
+export default Jobs;

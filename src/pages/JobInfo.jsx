@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import {CircularProgress} from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { CircularProgress } from '@material-ui/core';
 
 import axios from '../axios';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function JobInfo() {
   const [post, setPost] = useState({});
   const [loading, setLoading] = useState(true);
-  const {jobId} = useParams();
+  const { jobId } = useParams();
 
   useEffect(() => {
     const getData = async () => {
@@ -25,7 +25,7 @@ function JobInfo() {
   }, []);
 
   return (
-    <div className='container mt-12 mb-24'>
+    <div className='container mt-20 mb-24'>
       {loading ? (
         <div className='flex justify-center my-48'>
           <CircularProgress size={100} color='secondary' thickness={2} />
@@ -57,7 +57,7 @@ function JobInfo() {
           </section>
           <div className='bg-gray-200 h-0.5 my-4'></div>
           <section className='my-8'>
-            <div className='grid grid-cols-1 lg:grid-cols-2'>
+            <div className='flex flex-col tablet:flex-row'>
               <div>
                 <h2 className='text-3xl'>Job Type</h2>
                 <div className='mt-2 mb-12'>
@@ -70,9 +70,9 @@ function JobInfo() {
                     </button>
                   ))}
                 </div>
-                <p className='w-98'>{post.description}</p>
+                <p className='tablet:w-98'>{post.description}</p>
               </div>
-              <div className='pl-32 mt-4 '>
+              <div className='md:pl-32 mt-4 '>
                 <div className='border border-gray-800 p-4 '>
                   <h3 className='text-2xl px-2 pb-3 border-b border-gray-700'>
                     Similer Jobs
