@@ -20,9 +20,9 @@ function Setup() {
   const [gender, setGender] = useState('');
   const [skill, setSkill] = useState([]);
   const [language, setLanguage] = useState('');
-  const [cv, setCv] = useState('');
-  const [certificate, setCertificate] = useState('');
-  const [profilePicture, setProfilePicture] = useState('');
+  const [cv, setCv] = useState(null);
+  const [certificate, setCertificate] = useState(null);
+  const [profilePicture, setProfilePicture] = useState(null);
   const [previewUrl, setPreviewUrl] = useState();
   const history = useHistory();
 
@@ -255,7 +255,7 @@ function Setup() {
             >
               {skills &&
                 skills.map(skill => (
-                  <option value={skill.id} key={skill.id}>
+                  <option value={skill.name} key={skill.id}>
                     {skill.name}
                   </option>
                 ))}

@@ -71,13 +71,15 @@ function Jobs() {
     <div className='container mt-10'>
       <section className='mt-10 grid md:grid-cols-2 fl'>
         <div className='flex flex-col self-center pr-12'>
-          <h1 className='mb-6 capitalize text-5xl '>
-            Find Jobs that suitable for you
+          <h1 className='mb-6 capitalize text-4xl font-semibold'>
+            “Choose a job you love, and <br />
+            you will never have to work <br />a day in your life.”{' '}
+            <span className='font-normal text-gray-500 text-base'>
+              -Confucius
+            </span>
           </h1>
           <p className='capitalize text-xl'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore vel
-            voluptatibus perspiciatis aspernatur harum consequuntur distinctio
-            ullam alias excepturi explicabo.
+            We are here to ensure your next great job!
           </p>
         </div>
         <div>
