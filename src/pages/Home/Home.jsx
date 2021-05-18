@@ -12,17 +12,19 @@ function Home() {
       <header className='page-header page-header-light bg-white'>
         <div className='page-header-content py-5 '>
           <div className='container'>
-            <div className='grid grid-cols-2'>
+            <div className='grid grid-cols-2 place-content-center'>
               <div className='aos-init aos-animate' data-aos='fade-up'>
-                <h1 className='page-header-title'>
-                  Build your next project faster with SB UI Kit Pro
+                <h1 className='page-header-title font-medium mb-2'>
+                  Sign Up For Unlimited Opportunities, Your Future Starts Here!
+                  With Us, Toward A Limitless Future!
                 </h1>
                 <p className='page-header-text mb-5'>
-                  Welcome to SB UI Kit Pro, a toolkit for building beautiful web
-                  interfaces, created by the development team at Start Bootstrap
+                  Register to access full functionalities of the website, create
+                  a profile, demonstrate your Skills, post jobs and become part
+                  of the community.
                 </p>
                 <Link
-                  className='btn btn-lg btn-primary border-2 flex font-weight-500 mr-3'
+                  className='btn btn-lg btn-primary  flex font-weight-500 mr-3'
                   to='/jobs'
                 >
                   Explore Jobs
@@ -121,7 +123,8 @@ function Home() {
               </div>
               <h3>Safe and Reliable</h3>
               <p className='mb-0 px-10'>
-                We have built a safe and reliable environment where people can interact confidently.
+                We have built a safe and reliable environment where people can
+                interact confidently.
               </p>
             </div>
             <div className='col-lg-4'>
@@ -144,7 +147,8 @@ function Home() {
               </div>
               <h3>Connection</h3>
               <p className='mb-0 px-10'>
-                We have provided an atmosphere where people with different backgrounds can connect.
+                We have provided an atmosphere where people with different
+                backgrounds can connect.
               </p>
             </div>
           </div>
@@ -167,40 +171,44 @@ function Home() {
           <div className='container '>
             <div className='grid grid-cols-2 place-items-center'>
               <div className='aos-init aos-animate' data-aos='fade-up'>
-                <h1 className='page-header-title'>
-                  Build your next project faster with SB UI Kit Pro
+                <h1 className='text-3xl font-medium mb-4'>
+                  With KurdFreelance Your Dream Job Is Only One Click Away!
                 </h1>
                 <p className='page-header-text mb-5'>
-                  Welcome to SB UI Kit Pro, a toolkit for building beautiful web
-                  interfaces, created by the development team at Start Bootstrap
+                  Join our website to find the best job opportunities and
+                  getting best job offers by demonstrating your experience &
+                  Skills.
                 </p>
-                <a
-                  className='btn btn-lg btn-primary font-weight-500 mr-3'
-                  href='landing-multipurpose.html'
+
+                <Link
+                  className='btn btn-lg btn-primary flex font-weight-500 mr-3'
+                  to='/jobs'
                 >
-                  View Demo
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='24'
-                    height='24'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    stroke-width='2'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    className='feather feather-arrow-right ml-2'
-                  >
-                    <line x1='5' y1='12' x2='19' y2='12'></line>
-                    <polyline points='12 5 19 12 12 19'></polyline>
-                  </svg>
-                </a>
-                <a
-                  className='btn btn-lg btn-primary-soft text-primary font-weight-500'
-                  href='https://docs.startbootstrap.com/sb-ui-kit-pro/quickstart'
+                  Explore Jobs
+                  <div className='w-4 h-auto'>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='100%'
+                      height='100%'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      stroke-width='2'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      className='feather feather-arrow-right ml-2'
+                    >
+                      <line x1='5' y1='12' x2='19' y2='12'></line>
+                      <polyline points='12 5 19 12 12 19'></polyline>
+                    </svg>
+                  </div>
+                </Link>
+                <Link
+                  className=' btn btn-lg btn-primary-soft text-primary font-weight-500'
+                  to='/register'
                 >
-                  Documentation
-                </a>
+                  Register
+                </Link>
               </div>
               <div
                 className='aos-init aos-animate place-self-end '
@@ -226,18 +234,19 @@ function Home() {
       >
         <path d='M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0'></path>
       </svg>
+
+      {/* FAQ   */}
       <section className='bg-dark py-10 mb-16'>
         <div className='container'>
           {/* header text  */}
           <div className='flex justify-center mb-12 text-center'>
             <div className='w-2/3'>
               <h2 className='text-white  text-3xl mb-4'>
-                Save time with SB UI Kit Pro
+                Most Frequently Asked Questions FAQ
               </h2>
               <p className='text-white-50 text-xl mb-5'>
-                Start Bootstrap's premium UI Kit beautifully and intuitively
-                extends the Bootstrap framework making it easy to build your
-                next project!
+                We have dedicated this section to the most frequently asked
+                questions to provide the most wanted explanations.
               </p>
             </div>
           </div>
@@ -265,11 +274,11 @@ function Home() {
                 </div>
                 <div className='ml-4'>
                   <h5 className='text-white text-xl mb-3'>
-                    What is SB UI Kit Pro?
+                    Can I trust the posted jobs?
                   </h5>
                   <p className='text-white-50'>
-                    SB UI Kit Pro is a fully coded, responsive, Bootstrap based
-                    UI toolkit for developers.
+                    Yes, because all the jobs get reviewed and verified by admin
+                    before it gets published.
                   </p>
                 </div>
               </div>
@@ -296,12 +305,11 @@ function Home() {
                 </div>
                 <div className='ml-4'>
                   <h5 className='text-white text-xl mb-3'>
-                    What can I build with SB UI Kit Pro?
+                    How can I post a job?
                   </h5>
                   <p className='text-white-50'>
-                    Build anything you want to using this UI kit! It is
-                    flexible, multipurpose, and full of tools for you to use
-                    during development.
+                    To post a job, you must first register to our website and
+                    then go to post job section.
                   </p>
                 </div>
               </div>
@@ -328,12 +336,12 @@ function Home() {
                 </div>
                 <div className='ml-4'>
                   <h5 className='text-white  text-xl mb-3'>
-                    Do I get free updates?
+                    How can I find the specific job types Im interested in?
                   </h5>
                   <p className='text-white-50'>
-                    All of Start Bootstrap's premium products will come with
-                    updates for feature additions, bugfixes, and other small
-                    updates.
+                    Go to search page, there fill the search parameters
+                    according to the job types you are interested in and click
+                    on search.
                   </p>
                 </div>
               </div>
@@ -360,12 +368,10 @@ function Home() {
                 </div>
                 <div className='ml-4'>
                   <h5 className='text-white  text-xl mb-3'>
-                    What frameworks does it integrate with?
+                    Why my job post got rejected?
                   </h5>
                   <p className='text-white-50'>
-                    Our HTML based pro products are build with framework
-                    integration in mind. The compiled code is HTML and CSS,
-                    which is able to integrate with any framework.
+                    The job post was either incomplete or unverifiable.
                   </p>
                 </div>
               </div>
@@ -392,7 +398,7 @@ function Home() {
               in few easy steps
             </p>
             <h2 className='text-4xl lg:text-5xl font-extrabold text-center leading-tight text-gray-800 lg:w-7/12 md:w-9/12 pt-4'>
-              Create Beautiful Landing Pages & Web Apps in a Jiffy
+              How to Create a profile and post jobs?
             </h2>
           </div>
           <div className='mt-20 flex flex-wrap justify-between px-4'>
@@ -420,12 +426,10 @@ function Home() {
               </div>
               <div className='w-10/12'>
                 <h4 className='text-lg font-bold leading-tight text-gray-800'>
-                  Ready to use components
+                  Step 1
                 </h4>
                 <p className='text-base text-gray-600 leading-normal pt-2'>
-                  It provides a very simple start, no need to write a lot of
-                  code, you just import it and start the primitive components
-                  and create the ones you need.
+                  register to our website by providing the required information.
                 </p>
               </div>
             </div>
@@ -452,12 +456,11 @@ function Home() {
               </div>
               <div className='w-10/12'>
                 <h4 className='text-lg font-bold leading-tight text-gray-800'>
-                  Hight Quality UI you can reply on
+                  Step 2
                 </h4>
                 <p className='text-base text-gray-600 leading-normal pt-2'>
-                  Modify the visual appearance of your site – including colors,
-                  fonts, margins and other style-related properties – with a
-                  sophisticated style.
+                  Complete your profile information and attach your resume,
+                  certificates and project links to have a complete profile.
                 </p>
               </div>
             </div>
@@ -485,12 +488,12 @@ function Home() {
               </div>
               <div className='w-10/12'>
                 <h4 className='text-lg font-bold leading-tight text-gray-800'>
-                  Coded by Developers for Developers
+                  Step 3
                 </h4>
                 <p className='text-base text-gray-600 leading-normal pt-2'>
-                  Instead of just giving you the tools to create your own site,
-                  they offer you a list of themes you can choose from. Thus a
-                  handy product.
+                  To post a job, click on post a job button, fill out the
+                  required information and then click on post. It will be posted
+                  once approved by admin.
                 </p>
               </div>
             </div>
@@ -519,12 +522,11 @@ function Home() {
               </div>
               <div className='w-10/12'>
                 <h4 className='text-lg font-bold leading-tight text-gray-800'>
-                  The Last UI kit you’ll ever need
+                  Step 4
                 </h4>
                 <p className='text-base text-gray-600 leading-normal pt-2'>
-                  We have chosen the bright color palettes that arouse the only
-                  positive emotions. The kit that simply assures to be loved by
-                  everyone.
+                  You can edit your profile in profile settings Section. You can
+                  edit the posted job in edit post section.
                 </p>
               </div>
             </div>
