@@ -12,17 +12,19 @@ function Home() {
       <header className='page-header page-header-light bg-white'>
         <div className='page-header-content py-5 '>
           <div className='container'>
-            <div className='grid grid-cols-2'>
+            <div className='grid grid-cols-2 '>
               <div className='aos-init aos-animate' data-aos='fade-up'>
-                <h1 className='page-header-title'>
-                  Build your next project faster with SB UI Kit Pro
+                <h1 className='page-header-title font-medium mb-2'>
+                  Sign Up For Unlimited Opportunities, Your Future Starts Here!
+                  With Us, Toward A Limitless Future!
                 </h1>
                 <p className='page-header-text mb-5'>
-                  Welcome to SB UI Kit Pro, a toolkit for building beautiful web
-                  interfaces, created by the development team at Start Bootstrap
+                  Register to access full functionalities of the website, create
+                  a profile, demonstrate your Skills, post jobs and become part
+                  of the community.
                 </p>
                 <Link
-                  className='btn btn-lg btn-primary border-2 flex font-weight-500 mr-3'
+                  className='btn btn-lg btn-primary  flex font-weight-500 mr-3'
                   to='/jobs'
                 >
                   Explore Jobs
@@ -170,40 +172,44 @@ function Home() {
           <div className='container '>
             <div className='grid grid-cols-2 place-items-center'>
               <div className='aos-init aos-animate' data-aos='fade-up'>
-                <h1 className='page-header-title'>
-                  Build your next project faster with SB UI Kit Pro
+                <h1 className='text-3xl font-medium mb-4'>
+                  With KurdFreelance Your Dream Job Is Only One Click Away!
                 </h1>
                 <p className='page-header-text mb-5'>
-                  Welcome to SB UI Kit Pro, a toolkit for building beautiful web
-                  interfaces, created by the development team at Start Bootstrap
+                  Join our website to find the best job opportunities and
+                  getting best job offers by demonstrating your experience &
+                  Skills.
                 </p>
-                <a
-                  className='btn btn-lg btn-primary font-weight-500 mr-3'
-                  href='landing-multipurpose.html'
+
+                <Link
+                  className='btn btn-lg btn-primary flex font-weight-500 mr-3'
+                  to='/jobs'
                 >
-                  View Demo
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='24'
-                    height='24'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    stroke-width='2'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    className='feather feather-arrow-right ml-2'
-                  >
-                    <line x1='5' y1='12' x2='19' y2='12'></line>
-                    <polyline points='12 5 19 12 12 19'></polyline>
-                  </svg>
-                </a>
-                <a
-                  className='btn btn-lg btn-primary-soft text-primary font-weight-500'
-                  href='https://docs.startbootstrap.com/sb-ui-kit-pro/quickstart'
+                  Explore Jobs
+                  <div className='w-4 h-auto'>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='100%'
+                      height='100%'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      stroke-width='2'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      className='feather feather-arrow-right ml-2'
+                    >
+                      <line x1='5' y1='12' x2='19' y2='12'></line>
+                      <polyline points='12 5 19 12 12 19'></polyline>
+                    </svg>
+                  </div>
+                </Link>
+                <Link
+                  className=' btn btn-lg btn-primary-soft text-primary font-weight-500'
+                  to='/register'
                 >
-                  Documentation
-                </a>
+                  Register
+                </Link>
               </div>
               <div
                 className='aos-init aos-animate place-self-end '
