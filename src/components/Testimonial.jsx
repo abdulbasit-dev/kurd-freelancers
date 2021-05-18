@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+
+import ahmed from '../assets/img/ahmed.png';
 function Index() {
   const [change, setChange] = useState(false);
   return (
@@ -214,17 +216,17 @@ function Index() {
                   <div className='xl:flex md:flex lg:flex sm:flex items-center'>
                     <div className='h-20 w-20'>
                       <img
-                        src='https://cdn.tuk.dev/assets/photo-1544817747-b11e3e3b6ac2.jfif'
+                        src={ahmed}
                         alt
                         className='rounded-full object-cover h-full w-full shadow'
                       />
                     </div>
                     <div className='xl:pl-6 lg:pl-6 md:pl-6 sm:pl-6 sm:pt-0 pt-4'>
                       <p className='text-xl text-gray-600 font-bold'>
-                        Jane Doe
+                        Ahmad Saman
                       </p>
                       <p className='sm:text-xl text-sm text-gray-600'>
-                        VP Operations, AlphaSquad
+                        Fluter, and Web developer
                       </p>
                     </div>
                   </div>
@@ -249,16 +251,14 @@ function Index() {
                   </svg>
                 </div>
                 <p className='text-base text-gray-600 pb-6 w-full sm:w-10/12'>
-                  I just wanted to share a quick note and let you know that you
-                  guys do a really good job. I’m glad I decided to work with
-                  you. It’s really great how easy your websites are to update
-                  and manage. I never have any problem at all.
+                  It's a Great Website having almost all the functionalities
+                  that wee need. Provides a really good opportunity to connect
+                  with people and get work done.You can work with multiple
+                  clients and multiple projects with a single platform. It has
+                  good role management features. It is user friendly and helpful
+                  website.
                 </p>
-                <p className='text-base text-gray-600 w-full sm:w-10/12'>
-                  My new site is so much faster and easier to work with than my
-                  old site. It used to take me an hour or more to update a page
-                  and I would still sometimes screw things up.
-                </p>
+
                 <img
                   src='https://cdn.tuk.dev/assets/Path-right-arrow.png'
                   alt
