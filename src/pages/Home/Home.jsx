@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Testimonial from '../../components/Testimonial';
 
@@ -96,10 +96,9 @@ function Home() {
                   <polyline points='2 12 12 17 22 12'></polyline>
                 </svg>
               </div>
-              <h3>Built for developers</h3>
-              <p className='mb-0'>
-                Our modular, block-based build system makes building your next
-                project fast and easy!
+              <h3>Built For Technology</h3>
+              <p className='mb-0 px-10'>
+                It is a platform developed for tech people to show their skills.
               </p>
             </div>
             <div className='col-lg-4 mb-5 mb-lg-0'>
@@ -120,10 +119,9 @@ function Home() {
                   <line x1='12' y1='18' x2='12.01' y2='18'></line>
                 </svg>
               </div>
-              <h3>Modern responsive design</h3>
-              <p className='mb-0'>
-                This UI Kit is build mobile-first, meaning it is will function
-                beautifully on any device!
+              <h3>Safe and Reliable</h3>
+              <p className='mb-0 px-10'>
+                We have built a safe and reliable environment where people can interact confidently.
               </p>
             </div>
             <div className='col-lg-4'>
@@ -144,10 +142,9 @@ function Home() {
                   <polyline points='8 6 2 12 8 18'></polyline>
                 </svg>
               </div>
-              <h3>Complete documentation</h3>
-              <p className='mb-0'>
-                All of the layouts, page sections, components, and utilities are
-                fully covered in this products docs.
+              <h3>Connection</h3>
+              <p className='mb-0 px-10'>
+                We have provided an atmosphere where people with different backgrounds can connect.
               </p>
             </div>
           </div>
@@ -212,7 +209,7 @@ function Home() {
               >
                 <img
                   className=''
-                  style={{width: '400px', height: '500px'}}
+                  style={{ width: '400px', height: '500px' }}
                   src={creativity}
                 />
               </div>

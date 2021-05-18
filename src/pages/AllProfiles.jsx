@@ -165,7 +165,7 @@ function Jobs() {
 
                                     return (<Card
                                         key={index}
-                                        path={`jobs/${post.id}`}
+                                        path={`profile/${post.id}`}
                                         name={post.username}
                                         tags={['test']}
                                         description={post.profile.about_me.substring(0, 100).concat('...')}
