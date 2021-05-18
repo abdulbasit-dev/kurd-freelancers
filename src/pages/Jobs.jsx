@@ -154,7 +154,7 @@ function Jobs() {
               </h1>
               {posts && (
                 <h3 className='text-3xl text-center text-gray-600 pb-3'>
-                  Total Job Result: {posts.length}
+                  Total Job Results: {posts.length}
                 </h3>
               )}
               <div className='h-0.5 bg-gray-400'></div>

@@ -3,7 +3,7 @@ import { Button, CircularProgress, MenuItem, TextField } from '@material-ui/core
 import { makeStyles } from '@material-ui/core/styles';
 import { toast } from 'react-toastify';
 
-import jobs from '../assets/img/jobs.svg';
+import jobs from '../assets/img/profile.svg';
 import Card from '../components/Card';
 import axios from '../axios';
 
@@ -67,16 +67,18 @@ function Jobs() {
     };
 
     return (
-        <div className='container mt-10'>
+        <div className='container mt-20'>
             <section className='mt-10 grid md:grid-cols-2 fl'>
                 <div className='flex flex-col self-center pr-12'>
-                    <h1 className='mb-6 capitalize text-5xl '>
-                        Find Jobs that suitable for you
-          </h1>
+                    <h1 className='mb-6 capitalize text-4xl font-semibold'>
+                        “Great vision without great<br />
+           people is irrelevant.”{' '}
+                        <span className='font-normal text-gray-500 text-base'>
+                            -Jim Collins
+            </span>
+                    </h1>
                     <p className='capitalize text-xl'>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore vel
-                        voluptatibus perspiciatis aspernatur harum consequuntur distinctio
-                        ullam alias excepturi explicabo.
+                        We are here to ensure your next great hire!
           </p>
                 </div>
                 <div>
@@ -147,11 +149,11 @@ function Jobs() {
                     <section className='my-24'>
                         <div>
                             <h1 className='text-4xl  text-center text-gray-800 font-semibold pb-2'>
-                                Jobs
+                                Freelancers
               </h1>
                             {posts && (
                                 <h3 className='text-3xl text-center text-gray-600 pb-3'>
-                                    Total Job Result: {posts.length}
+                                    Total Freelancer Results: {posts.length}
                                 </h3>
                             )}
                             <div className='h-0.5 bg-gray-400'></div>

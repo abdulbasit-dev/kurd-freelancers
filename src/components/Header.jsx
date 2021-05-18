@@ -9,6 +9,7 @@ import logo from '../assets/img/logo.svg';
 
 function Header() {
   const { isLoggedIn, logout, user } = useContext(AuthContext);
+  console.log('header user', user);
   const history = useHistory()
   return (
     <header className='shadow  py-2 z-20  w-full fixed bg-white'>
