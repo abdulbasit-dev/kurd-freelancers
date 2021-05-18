@@ -43,7 +43,7 @@ const ProfileSetting = () => {
   console.log(data.projects[edit.id].des);
   console.log(acountSettingState);
   return (
-    <div className="flex flex-col w-10/12  mx-auto items-center">
+    <div className="flex mt-20 flex-col w-10/12  mx-auto items-center">
       <div className="relative w-full h-64">
         <img
           className="absolute w-full h-full "

@@ -165,10 +165,11 @@ function Jobs() {
 
                                     return (<Card
                                         key={index}
+                                        image={`${process.env.REACT_APP_BACKEND_API}/${post.profile_picture}`}
                                         path={`profile/${post.id}`}
-                                        name={post.username}
-                                        tags={['test']}
-                                        description={post.profile.about_me.substring(0, 100).concat('...')}
+                                        name={post.user.username}
+                                        tags={post.skills.split(',')}
+                                        description={post.about_me.substring(0, 100).concat('...')}
                                     />)
                                 })}
                         </div>
