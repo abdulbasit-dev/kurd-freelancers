@@ -1,16 +1,16 @@
 {
     "goals": [
         {
-            "title": "Title",
-            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo nam tempore possimus recusandae odit ratione aut? Incidunt accusantium possimus explicabo."
+            "title": "Safe",
+            "description": "Our main goal is to provide a safe and reliable platform where users can interact."
         },
         {
-            "title": "Title",
-            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo nam tempore possimus recusandae odit ratione aut? Incidunt accusantium possimus explicabo."
+            "title": "Efficient",
+            "description": "We are aiming to make the job acquisition process as efficient and effective as possible and minimize the search time and effort."
         },
         {
-            "title": "Title",
-            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo nam tempore possimus recusandae odit ratione aut? Incidunt accusantium possimus explicabo."
+            "title": "Connection",
+            "description": "Our purpose is to connect people and create a professional relationship between the user no matter where they are."
         }
     ],
     "teamInfo": {
