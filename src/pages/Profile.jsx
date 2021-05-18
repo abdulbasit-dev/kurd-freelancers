@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
 import axios from '../axios.js';
 
@@ -12,7 +12,7 @@ import github from '../assets/img/github.svg';
 import linkedin from '../assets/img/linkedin.svg';
 
 function Profile() {
-  const {userId} = useParams();
+  const { userId } = useParams();
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(true);
   console.log(userId);
@@ -74,13 +74,16 @@ function Profile() {
           Web Developer | Mobile App Developer
         </p>
         <div className='flex mt-3'>
-          <button className='bg-blue-600 hover:bg-blue-700 rounded-md font-medium px-8 py-1 text-white mr-6'>
+          {/* <button className='bg-blue-600 hover:bg-blue-700 rounded-md font-medium px-8 py-1 text-white mr-6'>
             {' '}
             Hire
           </button>
           <button className='bg-white border border-blue-600 text-blue-600  rounded-md font-medium px-8 py-1 hover:bg-gray-200 '>
             Rate
-          </button>
+          </button> */}
+          <Link to='/profile-setting' className={`bg-white border border-blue-600 text-blue-600  rounded-md font-medium px-8 py-1 hover:bg-gray-200 `}>
+            Edit profile
+          </Link>
         </div>
       </div>
       <div className='mt-4 w-3/5'>
@@ -149,7 +152,7 @@ function Profile() {
           </div>
           <div className='flex  items-center mt-4 pl-3'>
             <a
-              href='https://facebook.com/test'
+              href='https://www.facebook.com/abdulbasit.salah.7'
               rel='noopener noreferrer'
               target='_blank'
               className='mr-3'

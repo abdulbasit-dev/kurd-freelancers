@@ -36,7 +36,7 @@ function BurgerMenu({ Urls }) {
             <motion.div
                 variants={burgervariants}
                 animate={state ? 'open' : 'closed'}
-                className=" fixed p-1 z-50 top-0 right-0  m-3 flex md:hidden">
+                className=" fixed p-1 z-50 top-0 right-0  m-3 flex tablet:hidden">
                 <Hamburger
                     color="#fff"
                     toggle={() => {
@@ -51,7 +51,7 @@ function BurgerMenu({ Urls }) {
                 initial="hidden"
                 animate={state ? 'show' : 'hidden'}
                 transition={{ duration: 0.3 }}
-                className="fixed z-40    bg-opacity-90  bg-gray-900  right-0 top-0   h-screen w-60  md:hidden">
+                className="fixed z-40 bg-opacity-90 bg-gray-900 right-0 top-0 h-screen w-60 tablet:hidden">
                 <nav>
                     <ul className={` text-white pt-20 ${state ? 'flex ' : 'hidden'}    flex-col  items-center   `}>
                         {Urls.map((url) => {
