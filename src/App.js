@@ -56,7 +56,7 @@ function App() {
   if (token) {
 
     routes = (
-      <div className='flex-1'>
+      <>
         <Route path='/post-job' exact>
           <Header />
           <PostJob />
@@ -71,11 +71,14 @@ function App() {
           <Header />
           <ProfileSetting />
         </Route>
-      </div>
+        <Route>
+          <Page404 />
+        </Route>
+      </>
     );
   } else {
     routes = (
-      <div className='flex-1'>
+      <>
         <Route path='/signin'>
           <Header />
           <SignIn />
@@ -86,14 +89,17 @@ function App() {
           <Singnup />
           <Footer className='xl:absolute' />
         </Route>
-      </div>
+        <Route>
+          <Page404 />
+        </Route>
+      </>
     );
   }
 
   return (
     <Router>
       <Switch>
-        <div className=' flex flex-col h-screen'>
+        <div className='flex flex-col h-screen'>
           <ToastContainer />
           <Route path='/' exact>
             <Header />
@@ -128,9 +134,6 @@ function App() {
           </Route>
           {routes}
         </div>
-        <Route>
-          <Page404 />
-        </Route>
       </Switch>
     </Router>
   );
