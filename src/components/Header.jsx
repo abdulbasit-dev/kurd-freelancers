@@ -55,7 +55,7 @@ function Header() {
                       to={`/profile/${user.id}`}
                       className='ml-5 hover:text-blue-600 '
                     >
-                      {user.name}
+                      {user.username}
                     </Link>
                   </li>
                   <li
@@ -67,16 +67,18 @@ function Header() {
                   >
                     Logout
                   </li>
-                  <li className='px-3 py-1 mr-5 bg-primary text-white rounded-lg'>
-                    <Link to='/post-job' className=''>
-                      Post a Job
-                    </Link>
-                  </li>
+                  {user.profile && (
+                    <li className='px-3 py-1 mr-5 bg-primary text-white rounded-lg'>
+                      <Link to='/post-job' className=''>
+                        Post a Job
+                      </Link>
+                    </li>
+                  )}
                 </ul>
                 <div>
                   <BurgerMenu
                     Urls={[
-                      {path: `/profile/${user.id}`, name: `${user.name}`},
+                      {path: `/profile/${user.id}`, name: `${user.username}`},
                       {
                         path: '/',
                         name: 'Home',

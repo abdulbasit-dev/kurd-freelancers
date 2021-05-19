@@ -12,6 +12,7 @@ import FacebookLogo from './../assets/img/facebook.svg';
 import GoogleLogo from './../assets/img/google.svg';
 import LinkedInLogo from './../assets/img/linkedin.svg';
 import GithubLogo from './../assets/img/github.svg';
+import {Link} from 'react-router-dom';
 
 const SignIn = () => {
   const auth = useContext(AuthContext);
@@ -32,20 +33,22 @@ const SignIn = () => {
     if (resp.data.error) {
       toast.error(resp.data.message, {
         position: 'top-right',
-        autoClose: 4000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
       });
+      setPassword('');
+    } else {
+      auth.login(resp.data.user, resp.data.access_token);
+      history.push(`/profile/${resp.data.user.id}`);
     }
-    auth.login(resp.data.user, resp.data.access_token);
-    history.push(`/profile/${resp.data.user.id}`);
   };
 
   return (
-    <div className='flex  justify-center items-center mt-28 overflow-x-hidden '>
+    <div className='flex justify-center items-center mt-28 overflow-x-hidde '>
       <div className='relative min-h-100 flex rounded w-full md:w-2/3  flex-col tablet:flex-row  tablet:px-0 mb-14 min-w-full tablet:min-w-0  justify-center items-center py-10 md:px-20'>
         <div className='flex tablet:absolute left-0  tablet:shadow-2xl bg-lightblue w-full rounded-l min-h-full tablet:w-5/12 flex-col pt-5 px-12 text-white'>
           <h1 className='text-3xl text-center'>What are you</h1>
@@ -55,9 +58,11 @@ const SignIn = () => {
             you want!
           </p>
           <div className='flex justify-center mt-20 mb-10'>
-            <Button variant='contained' color='primary'>
-              Sign up
-            </Button>
+            <Link to='/register'>
+              <Button variant='contained' color='primary'>
+                Sign up
+              </Button>
+            </Link>
           </div>
         </div>
         <div className='flex flex-col tablet:absolute items-center w-full tablet:w-7/12  rounded-r right-0 text-lightblue min-h-full shadow-2xl '>

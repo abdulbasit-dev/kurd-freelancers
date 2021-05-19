@@ -1,13 +1,14 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Button, CircularProgress, MenuItem, TextField} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 import {toast} from 'react-toastify';
 
-import {AuthContext} from '../AuthContext';
-
-import jobs from '../assets/img/profile.svg';
-import Card from '../components/Card';
 import axios from '../axios';
+import Card from '../components/Card';
+
+import female from '../assets/img/user_1.svg';
+import male from '../assets/img/user_2.svg';
+import jobs from '../assets/img/profile.svg';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,8 +26,6 @@ function Jobs() {
   const [posts, setPosts] = useState([]);
   const [locations, setLocations] = useState([]);
   const [tags, setTags] = useState([]);
-
-  const {user} = useContext(AuthContext);
 
   const classes = useStyles();
 
@@ -63,7 +62,9 @@ function Jobs() {
       });
       return;
     }
-    const resp = await axios.get(`/api/posts?location=${location}&tag=${tag}`);
+    const resp = await axios.get(
+      `/api/user_profiles?location=${location}&tag=${tag}`
+    );
     setPosts(resp.data.data);
 
     setTag('');
@@ -171,8 +172,16 @@ function Jobs() {
                   return (
                     <Card
                       key={index}
-                      image={`${process.env.REACT_APP_BACKEND_API}/${post.profile_picture}`}
-                      path={`profile/${user.id}`}
+                      image={`${
+                        post.profile_picture
+                          ? process.env.REACT_APP_BACKEND_API +
+                            '/' +
+                            post.profile_picture
+                          : post.gender_id === 2
+                          ? female
+                          : male
+                      }`}
+                      path={`profile/${parseInt(post.user_id)}`}
                       name={post.user.username}
                       tags={post.skills.split(',')}
                       description={post.about_me

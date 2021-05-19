@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import Testimonial from '../../components/Testimonial';
 
@@ -58,7 +58,7 @@ function Home() {
                 data-aos='fade-up'
                 data-aos-delay='100'
               >
-                <img className='img-fluid' src={programming} />
+                <img className='img-fluid' src={programming} alt='programing' />
               </div>
             </div>
           </div>
@@ -217,8 +217,9 @@ function Home() {
               >
                 <img
                   className=''
-                  style={{ width: '400px', height: '500px' }}
+                  style={{width: '400px', height: '500px'}}
                   src={creativity}
+                  alt='creatifity'
                 />
               </div>
             </div>

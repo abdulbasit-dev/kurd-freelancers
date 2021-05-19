@@ -55,7 +55,7 @@ function App() {
           <PostJob />
           <Footer />
         </Route>
-        <Route path='/setup/:id' exact>
+        <Route path='/setup/:userId' exact>
           <Header />
           <Setup />
           <Footer />

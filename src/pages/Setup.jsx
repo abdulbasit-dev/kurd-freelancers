@@ -1,13 +1,11 @@
-import React, {useContext, useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
+import {Link, useParams} from 'react-router-dom';
 import {toast} from 'react-toastify';
-import {Button} from '@material-ui/core';
 
-import {AuthContext} from '../AuthContext';
 import axios from '../axios';
 import {useHistory} from 'react-router';
 
 function Setup() {
-  const auth = useContext(AuthContext);
   const [cities, setCities] = useState([]);
   const [genders, setGenders] = useState([]);
   const [languages, setLanguages] = useState([]);
@@ -25,6 +23,8 @@ function Setup() {
   const [profilePicture, setProfilePicture] = useState(null);
   const [previewUrl, setPreviewUrl] = useState();
   const history = useHistory();
+
+  const {userId} = useParams();
 
   useEffect(() => {
     if (!profilePicture) {
@@ -79,7 +79,7 @@ function Setup() {
     };
 
     const resp = await axios.post(
-      `/api/users/${auth.user.id}/profiles`,
+      `/api/users/${parseInt(userId)}/profiles`,
       formData,
       config
     );
@@ -95,7 +95,7 @@ function Setup() {
         progress: undefined,
       });
       setTimeout(() => {
-        history.push(`/profile/${auth.user.id}`);
+        history.push(`/profile/${parseInt(userId)}`);
       }, 2500);
     }
   };
@@ -146,20 +146,27 @@ function Setup() {
           You can aslo press skip & complete your profile info later.
         </p>
         <div className='justify-center flex space-x-4 m-5'>
-          <button className='flex justify-center items-center w-24 text-white border border-white rounded-md focus:outline-none'>
-            Skip
-          </button>
-          <button className='bg-white flex justify-center items-center w-24 text-cover p-1 rounded-md focus:outline-none'>
+          <Link to={`/profile/${parseInt(userId)}`}>
+            <button className='flex justify-center items-center w-24 text-white p-1 border border-white rounded-md focus:outline-none'>
+              Skip
+            </button>
+          </Link>
+          <button
+            type='submit'
+            form='form'
+            className='bg-white flex justify-center items-center w-24 text-cover p-1 rounded-md focus:outline-none'
+          >
             Next
           </button>
         </div>
       </div>
       <div className='lg:w-3/5 m-5'>
-        <form onSubmit={createProfile} id='form'>
+        <form id='form' onSubmit={createProfile}>
           <div className='flex flex-col w-full lg:w-4/5 mb-5'>
             <label className='text-lg'>Full Name</label>
             <input
               type='text'
+              required
               className='px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600'
               placeholder='Full Name'
               value={name}
@@ -171,6 +178,7 @@ function Setup() {
             <div className='flex-1 flex flex-col'>
               <label className='text-lg'>Gender</label>
               <select
+                required
                 className='cursor-pointer px-3 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600'
                 name='gender'
                 value={gender}
@@ -187,6 +195,7 @@ function Setup() {
             <div className='flex flex-col'>
               <label className='text-lg'>Age</label>
               <input
+                required
                 type='number'
                 className='px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600'
                 placeholder='Number'
@@ -197,6 +206,7 @@ function Setup() {
             <div className='flex-1 flex flex-col'>
               <label className='text-lg'>Language</label>
               <select
+                required
                 className='cursor-pointer px-3 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600'
                 name='language'
                 value={language}
@@ -216,6 +226,7 @@ function Setup() {
             <div className='w-2/5 mr-10'>
               <label className='text-lg'>City</label>
               <select
+                required
                 className='cursor-pointer px-3 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600'
                 value={city}
                 onChange={e => setCity(e.target.value)}
@@ -231,6 +242,7 @@ function Setup() {
             <div className='w-3/5'>
               <label className='text-lg'>Phone Number</label>
               <input
+                required
                 type='tel'
                 className='px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600'
                 placeholder='+964XXX XXX XXXX'
@@ -247,6 +259,7 @@ function Setup() {
             </small>
             {/* <Multiselect /> */}
             <select
+              required
               className='resize-y cursor-pointer px-3 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600'
               // value={skill}
               onChange={handleSelectSkill}
@@ -267,9 +280,11 @@ function Setup() {
             </label>
 
             <textarea
-              className='border resize-y focus:ring-gray-500 p-3 focus:border-gray-900 w-full border-gray-300 rounded-md focus:outline-none text-gray-600'
+              required
+              maxLength='300'
+              className='border resize-none focus:ring-gray-500 p-3 focus:border-gray-900 w-full border-gray-300 rounded-md focus:outline-none text-gray-600'
               id='aboutMe'
-              rows='4'
+              rows='6'
               value={aboutMe}
               onChange={e => setAboutMe(e.target.value)}
             ></textarea>
@@ -339,13 +354,7 @@ function Setup() {
             )}
           </div>
 
-          <div className='flex items-center  space-x-4 mb-5'>
-            <div className='flex flex-col'>
-              <Button variant='contained' color='primary' type='submit'>
-                Save
-              </Button>
-            </div>
-          </div>
+          <div className='flex items-center  space-x-4 mb-5'></div>
         </form>
       </div>
     </div>

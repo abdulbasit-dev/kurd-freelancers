@@ -217,7 +217,7 @@ function Index() {
                     <div className='h-20 w-20'>
                       <img
                         src={ahmed}
-                        alt
+                        alt='ahmed'
                         className='rounded-full object-cover h-full w-full shadow'
                       />
                     </div>
@@ -261,7 +261,7 @@ function Index() {
 
                 <img
                   src='https://cdn.tuk.dev/assets/Path-right-arrow.png'
-                  alt
+                  alt='arrow'
                   className='absolute right-0 mr-16 sm:-mt-6 cursor-pointer'
                   onClick={() => setChange(!change)}
                 />
@@ -274,7 +274,7 @@ function Index() {
                     <div className='h-20 w-20'>
                       <img
                         src='https://cdn.tuk.dev/assets/templates/Project+Management/pm_15.png'
-                        alt
+                        alt='xwa xoy dazne mn nazanm'
                         className='rounded-full object-cover h-full w-full shadow'
                       />
                     </div>
@@ -322,7 +322,7 @@ function Index() {
                 </p>
                 <img
                   src='https://cdn.tuk.dev/assets/Path-right-arrow.png'
-                  alt
+                  alt='arrow'
                   className='absolute right-0 mr-16 sm:-mt-6 cursor-pointer'
                   onClick={() => setChange(!change)}
                 />

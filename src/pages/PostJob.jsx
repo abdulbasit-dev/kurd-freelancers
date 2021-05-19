@@ -20,7 +20,7 @@ import bag from '../assets/img/PostJob/bag.svg';
 import paper from '../assets/img/PostJob/paper.svg';
 import upload from '../assets/img/PostJob/upload.svg';
 import info from '../assets/img/PostJob/info.svg';
-import remove from '../assets/img/PostJob/remove.svg';
+// import remove from '../assets/img/PostJob/remove.svg';
 import cog from '../assets/img/PostJob/cog.svg';
 import {AuthContext} from '../AuthContext';
 
@@ -75,7 +75,7 @@ function JobPost() {
     formData.append('end_range_price', endRagne);
     formData.append('time_delivary_type', timeDelivaryType);
     formData.append('time_amount', timeAmount);
-    formData.append('location_id', location);
+    formData.append('city_id', location);
 
     const config = {
       headers: {
@@ -84,8 +84,6 @@ function JobPost() {
     };
 
     const resp = await axios.post(`/api/posts`, formData, config);
-
-    console.log(resp.data);
 
     if (!resp.data.error) {
       toast.success(resp.data.message, {

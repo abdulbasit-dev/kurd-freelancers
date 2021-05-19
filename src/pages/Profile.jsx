@@ -1,21 +1,24 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useParams, Link} from 'react-router-dom';
 import {CircularProgress} from '@material-ui/core';
 
 import axios from '../axios.js';
 
 //images
-import starFull from '../assets/img/star-full.svg';
-import halfStar from '../assets/img/star-half.svg';
-import emptyStar from '../assets/img/star-empty.svg';
+// import starFull from '../assets/img/star-full.svg';
+// import halfStar from '../assets/img/star-half.svg';
+// import emptyStar from '../assets/img/star-empty.svg';
 import facebook from '../assets/img/facebook.svg';
 import github from '../assets/img/github.svg';
 import linkedin from '../assets/img/linkedin.svg';
 import female from '../assets/img/user_1.svg';
 import male from '../assets/img/user_2.svg';
+import no_image from '../assets/img/unknown_user.svg';
+import {AuthContext} from '../AuthContext.js';
 
 function Profile() {
   const {userId} = useParams();
+  const auth = useContext(AuthContext);
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -27,7 +30,7 @@ function Profile() {
       setLoading(false);
     };
     getData();
-  }, []);
+  }, [userId]);
 
   const projects = [
     {
@@ -52,6 +55,36 @@ function Profile() {
     <div className='flex justify-center my-48'>
       <CircularProgress size={100} color='secondary' thickness={2} />
     </div>
+  ) : !userData.profile ? (
+    <div className='container mb-16 '>
+      <div className='flex justify-between border pt-24 bg-cover px-4 pb-1 '>
+        <img
+          src={`${no_image}`}
+          className='rounded-full h-24 w-24 '
+          alt='no img'
+        />
+        {/* rating */}
+      </div>
+      <div className='mt-4'>
+        <div className='flex items-center '>
+          <h2 className='text-3xl text-gray-600 mt-3'>{userData.username}</h2>
+        </div>
+
+        <div className='flex my-8 items-center  flex-col'>
+          <p className='text-3xl text-gray-600 capitalize mb-4'>
+            There is no information for this user
+          </p>
+          {auth.user.id === parseInt(userId) && (
+            <Link
+              to={`/setup/${userData.id}`}
+              className={`bg-white border border-blue-600 text-blue-600 text-2xl mb-3  rounded-md font-medium px-12 py-4 hover:bg-blue-500 hover:text-white `}
+            >
+              Setup Profile
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
   ) : (
     <div className='container '>
       <div className='flex justify-between border pt-24 bg-cover px-4 pb-1 '>
@@ -70,7 +103,7 @@ function Profile() {
           className='rounded-full h-24 w-24 '
         />
         {/* rating */}
-        <div className='text-white'>
+        {/* <div className='text-white'>
           <h3 className='mb-2'>Rating:</h3>
           <div className='flex items-center container'>
             <img src={starFull} alt='' />
@@ -79,7 +112,7 @@ function Profile() {
             <img src={halfStar} alt='' />
             <img src={emptyStar} alt='' />
           </div>
-        </div>
+        </div> */}
       </div>
       <div className='mt-4'>
         <div className='flex items-center '>
@@ -100,12 +133,14 @@ function Profile() {
           <button className='bg-white border border-blue-600 text-blue-600  rounded-md font-medium px-8 py-1 hover:bg-gray-200 '>
             Rate
           </button> */}
-          <Link
-            to='/profile-setting'
-            className={`bg-white border border-blue-600 text-blue-600  rounded-md font-medium px-8 py-1 hover:bg-gray-200 `}
-          >
-            Edit profile
-          </Link>
+          {auth.user.id === parseInt(userId) && (
+            <Link
+              to='/profile-setting'
+              className={`bg-white border border-blue-600 text-blue-600  rounded-md font-medium px-8 py-1 hover:bg-gray-200 `}
+            >
+              Edit profile
+            </Link>
+          )}
         </div>
       </div>
       <div className='mt-4 w-3/5'>

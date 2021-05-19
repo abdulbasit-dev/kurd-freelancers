@@ -8,7 +8,7 @@ import GoogleLogo from './../assets/img/google.svg';
 import LinkedInLogo from './../assets/img/linkedin.svg';
 import GithubLogo from './../assets/img/github.svg';
 import {AuthContext} from '../AuthContext';
-import {useHistory} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 const Singnup = () => {
   const auth = useContext(AuthContext);
@@ -42,7 +42,7 @@ const Singnup = () => {
     setConfirmPassword('');
     setError(false);
     setErrorMessage('');
-    //redirect to setup profile
+    //redirect to setup profile with user id
     history.push(`/setup/${resp.data.id}`);
   };
 
@@ -57,7 +57,9 @@ const Singnup = () => {
                 To keep connected with us please log in your personal info
               </p>
               <div className='mt-16'>
-                <Button variant='outlined'>Log in</Button>
+                <Link to='/signin'>
+                  <Button variant='outlined'>Log in</Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -115,6 +117,7 @@ const Singnup = () => {
               </div>
               <div className='w-full tablet:w-96'>
                 <TextField
+                  type='email'
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   variant='outlined'

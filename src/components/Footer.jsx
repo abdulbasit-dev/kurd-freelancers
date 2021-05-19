@@ -67,7 +67,7 @@ function Footer() {
         <div className='flex w-full sm:w-1/2 lg:w-1/4 md:w-2/6 xl:w-1/5 mt-3'>
           <ul className='text-white flex flex-col'>
             <h2 className='text-xl font-bold'>Connect With Us</h2>
-            <div className='flex justify-between'>
+            <div className='flex justify-between mt-2'>
               <Link className='w-12 h-12' to='/'>
                 <img src={FacebookLogo} alt='facebook logo ' />
               </Link>

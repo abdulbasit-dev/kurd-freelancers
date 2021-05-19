@@ -13,6 +13,7 @@ function JobInfo() {
     const getData = async () => {
       const post = await axios.get(`api/posts/${jobId}`);
       setPost(post.data);
+      console.log(post.data);
       setLoading(false);
     };
     getData();
@@ -34,7 +35,25 @@ function JobInfo() {
             <div>
               <div className='mb-3'>
                 <h1 className='text-4xl mb-2'>{post.title}</h1>
-                <p>Price Type | Price</p>
+                <p>
+                  Price Type{' '}
+                  <span className='text-blue-500'>
+                    {post.currency_type === 'USA' && 'USD'}{' '}
+                  </span>
+                  | Price:{' '}
+                  {post.fix_price ? (
+                    <span className='text-blue-500'>{post.fix_price}</span>
+                  ) : (
+                    <>
+                      <span className='text-blue-500'>
+                        {post.start_range_price} -{' '}
+                      </span>{' '}
+                      <span className='text-blue-500'>
+                        {post.end_range_price}
+                      </span>
+                    </>
+                  )}
+                </p>
               </div>
               <div>
                 <p>
