@@ -1,4 +1,4 @@
-import React, {createContext, useCallback, useState} from 'react';
+import React, { createContext, useCallback, useState } from 'react';
 
 export const AuthContext = createContext();
 
@@ -23,7 +23,7 @@ function AuthProvider(props) {
       })
     );
   }, []);
-
+  console.log(user);
   const logout = useCallback(() => {
     console.log('logout run');
     setToken(false);

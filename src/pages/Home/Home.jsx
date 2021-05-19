@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Testimonial from '../../components/Testimonial';
 
@@ -217,7 +217,7 @@ function Home() {
               >
                 <img
                   className=''
-                  style={{width: '400px', height: '500px'}}
+                  style={{ width: '400px', height: '500px' }}
                   src={creativity}
                 />
               </div>

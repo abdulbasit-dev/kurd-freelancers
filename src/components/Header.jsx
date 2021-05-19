@@ -9,6 +9,7 @@ import logo from '../assets/img/logo.svg';
 
 function Header() {
   const { isLoggedIn, logout, user } = useContext(AuthContext);
+  console.log('header user', user);
   const history = useHistory()
   return (
     <header className='shadow  py-2 z-20  w-full fixed bg-white'>
@@ -18,7 +19,7 @@ function Header() {
             <img src={logo} alt='logo' className='mr-6' />
           </Link>
 
-          <ul className='font-medium hidden md:flex'>
+          <ul className='font-medium hidden tablet:flex'>
             <li>
               <Link to='/' className='mr-5 hover:text-blue-600'>
                 Home
@@ -27,6 +28,11 @@ function Header() {
             <li>
               <Link to='/jobs' className='mr-5 hover:text-blue-600'>
                 Find Jobs
+              </Link>
+            </li>
+            <li>
+              <Link to='/profile' className='mr-5 hover:text-blue-600'>
+                Freelances
               </Link>
             </li>
             <li>
@@ -40,10 +46,10 @@ function Header() {
           {isLoggedIn ? (
             <>
               <div className='flex'>
-                <Link to={`/profile/${user.id}`}>
+                <Link to={`/profile/${user.id}`} className='hidden tablet:flex'>
                   <Avatar alt={user.name} src='/static/images/avatar/1.jpg' />
                 </Link>
-                <ul className=' hidden font-medium items-center md:flex'>
+                <ul className=' hidden font-medium items-center tablet:flex'>
 
 
                   <li>
@@ -70,20 +76,21 @@ function Header() {
                   </li>
                 </ul>
                 <div>
-                  <BurgerMenu Urls={[{
+                  <BurgerMenu Urls={[{ path: `/profile/${user.id}`, name: `${user.name}` },
+                  {
                     path: '/',
                     name: 'Home',
-                  }, { path: `/profile/${user.id}`, name: `${user.name}` }, { path: '/', name: 'Logout', func: logout },
+                  },
                   {
                     path: '/about',
                     name: 'About',
-                  }]} />
+                  }, { path: "profile", name: 'Freelancers' }, { path: '/jobs', name: "Find jobs" }, { path: '/', name: 'Logout', func: logout }]} />
                 </div>
               </div>
             </>
           ) : (
             <>
-              <ul className='hidden font-medium items-center md:flex'>
+              <ul className='hidden font-medium items-center tablet:flex'>
                 <li>
                   <Link to='/register' className='mr-5 hover:text-blue-600'>
                     Register
@@ -104,7 +111,22 @@ function Header() {
                 {
                   path: '/about',
                   name: 'About',
-                }, { path: '/signin', name: 'Sign in' }, { path: '/register', name: 'Register' },]} />
+                },
+                {
+                  path: "profile",
+                  name: 'Freelancers'
+                },
+                {
+                  path: '/jobs',
+                  name: "Find jobs"
+                },
+                {
+                  path: '/signin',
+                  name: 'Sign in'
+                }, {
+                  path: '/register',
+                  name: 'Register'
+                },]} />
               </div>
             </>
           )}

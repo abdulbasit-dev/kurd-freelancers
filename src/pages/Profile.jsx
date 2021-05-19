@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
 import axios from '../axios.js';
 
@@ -12,14 +12,14 @@ import github from '../assets/img/github.svg';
 import linkedin from '../assets/img/linkedin.svg';
 
 function Profile() {
-  const {userId} = useParams();
+  const { userId } = useParams();
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(true);
   console.log(userId);
 
   useEffect(() => {
     const getData = async () => {
-      const resp = await axios.get(`api/users/${userId}/profiles`);
+      const resp = await axios.get(`api/user_profiles/${userId}`);
       console.log(resp.data);
       setUserData(resp.data);
       setLoading(false);
@@ -50,7 +50,7 @@ function Profile() {
         {/* avatar */}
         <img
           alt='Remy Sharp'
-          src={`${process.env.REACT_APP_BACKEND_API}/${userData.profile.profile_picture}`}
+          src={`${process.env.REACT_APP_BACKEND_API}/${userData.profile_picture}`}
           className='rounded-full h-24 w-24 '
         />
         {/* rating */}
@@ -67,26 +67,29 @@ function Profile() {
       </div>
       <div className='mt-4'>
         <div className='flex items-center '>
-          <h2 className='text-3xl'>{userData.profile.name}</h2>
+          <h2 className='text-3xl'>{userData.name}</h2>
           <p className='ml-4 text-green-400'>Available</p>
         </div>
         <p className='mt-2 text-gray-500 '>
-          Web Developer | Mobile App Developer
+          {userData.skills.split(',')[0]} {userData.skills.split(',')[1] ? `| ` + userData.skills.split(',')[1] : ''}
         </p>
         <div className='flex mt-3'>
-          <button className='bg-blue-600 hover:bg-blue-700 rounded-md font-medium px-8 py-1 text-white mr-6'>
+          {/* <button className='bg-blue-600 hover:bg-blue-700 rounded-md font-medium px-8 py-1 text-white mr-6'>
             {' '}
             Hire
           </button>
           <button className='bg-white border border-blue-600 text-blue-600  rounded-md font-medium px-8 py-1 hover:bg-gray-200 '>
             Rate
-          </button>
+          </button> */}
+          <Link to='/profile-setting' className={`bg-white border border-blue-600 text-blue-600  rounded-md font-medium px-8 py-1 hover:bg-gray-200 `}>
+            Edit profile
+          </Link>
         </div>
       </div>
       <div className='mt-4 w-3/5'>
         <h2 className='text-2xl  border-b-2 border-gray-400 pb-3'>About Me:</h2>
 
-        <p className='mt-2 text-gray-500'>{userData.profile.about_me}</p>
+        <p className='mt-2 text-gray-500'>{userData.about_me}</p>
       </div>
 
       <div className='mt-16 flex justify-between items-start mb-16'>
@@ -137,19 +140,19 @@ function Profile() {
             <p className='pt-1'>
               Phone Number:{' '}
               <span className='text-gray-600'>
-                {userData.profile.phone_number}
+                {userData.phone_number}
               </span>
             </p>
             <p className='pt-1'>
               Address:{' '}
               <span className='text-gray-600'>
-                {userData.profile.city.name},Kurdistan,Iraq
+                {userData.city.name},Kurdistan,Iraq
               </span>
             </p>
           </div>
           <div className='flex  items-center mt-4 pl-3'>
             <a
-              href='https://facebook.com/test'
+              href='https://www.facebook.com/abdulbasit.salah.7'
               rel='noopener noreferrer'
               target='_blank'
               className='mr-3'

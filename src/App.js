@@ -16,6 +16,7 @@ import PostJob from './pages/PostJob';
 import Jobs from './pages/Jobs';
 import JobInfo from './pages/JobInfo';
 import Setup from './pages/Setup';
+import AllProfiles from './pages/AllProfiles'
 
 let logoutTimer;
 function App() {
@@ -55,7 +56,7 @@ function App() {
   if (token) {
 
     routes = (
-      <div className='flex-1'>
+      <>
         <Route path='/post-job' exact>
           <Header />
           <PostJob />
@@ -70,11 +71,14 @@ function App() {
           <Header />
           <ProfileSetting />
         </Route>
-      </div>
+        <Route>
+          <Page404 />
+        </Route>
+      </>
     );
   } else {
     routes = (
-      <div className='flex-1'>
+      <>
         <Route path='/signin'>
           <Header />
           <SignIn />
@@ -85,14 +89,17 @@ function App() {
           <Singnup />
           <Footer className='xl:absolute' />
         </Route>
-      </div>
+        <Route>
+          <Page404 />
+        </Route>
+      </>
     );
   }
 
   return (
     <Router>
       <Switch>
-        <div className=' flex flex-col h-screen'>
+        <div className='flex flex-col h-screen'>
           <ToastContainer />
           <Route path='/' exact>
             <Header />
@@ -115,6 +122,11 @@ function App() {
             <About />
             <Footer />
           </Route>
+          <Route path='/profile' exact>
+            <Header />
+            <AllProfiles />
+            <Footer />
+          </Route>
           <Route path='/profile/:userId'>
             <Header />
             <Profile />
@@ -122,9 +134,6 @@ function App() {
           </Route>
           {routes}
         </div>
-        <Route>
-          <Page404 />
-        </Route>
       </Switch>
     </Router>
   );
