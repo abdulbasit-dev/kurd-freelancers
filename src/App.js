@@ -1,8 +1,13 @@
-import React, { useContext, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import React, {useContext, useEffect} from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import {ToastContainer} from 'react-toastify';
 
-import { AuthContext } from './AuthContext';
+import {AuthContext} from './AuthContext';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import About from './pages/About';
@@ -16,20 +21,11 @@ import PostJob from './pages/PostJob';
 import Jobs from './pages/Jobs';
 import JobInfo from './pages/JobInfo';
 import Setup from './pages/Setup';
-import AllProfiles from './pages/AllProfiles'
+import AllProfiles from './pages/AllProfiles';
 
 let logoutTimer;
 function App() {
-  const { isLoggedIn, token, user, login, tokenExpirationDate, logout } =
-    useContext(AuthContext);
-  // console.log(
-  //   '\n=========================',
-  //   'is Logged in=>>> ' + isLoggedIn,
-  //   '\nuser =>>> ',
-  //   user,
-  //   '\ntoken=>>> ' + token,
-  //   '\n========================='
-  // );
+  const {token, login, tokenExpirationDate, logout} = useContext(AuthContext);
 
   useEffect(() => {
     const storedData = JSON.parse(window.localStorage.getItem('user'));
@@ -39,8 +35,6 @@ function App() {
       login(storedData.user, storedData.token, new Date(storedData.expiration));
     }
   }, [login]);
-
-  // console.log('app render');
 
   useEffect(() => {
     if (token && tokenExpirationDate) {
@@ -54,7 +48,6 @@ function App() {
 
   let routes;
   if (token) {
-
     routes = (
       <>
         <Route path='/post-job' exact>
@@ -71,9 +64,6 @@ function App() {
           <Header />
           <ProfileSetting />
         </Route>
-        <Route>
-          <Page404 />
-        </Route>
       </>
     );
   } else {
@@ -88,9 +78,6 @@ function App() {
           <Header />
           <Singnup />
           <Footer className='xl:absolute' />
-        </Route>
-        <Route>
-          <Page404 />
         </Route>
       </>
     );
@@ -133,6 +120,12 @@ function App() {
             <Footer />
           </Route>
           {routes}
+          {/* <Route path='/somewhere/else'>
+            <Page404 />
+          </Route>
+          <Route>
+            <Redirect to='/somewhere/else' />
+          </Route> */}
         </div>
       </Switch>
     </Router>

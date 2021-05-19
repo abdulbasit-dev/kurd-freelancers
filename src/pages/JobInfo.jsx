@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { CircularProgress } from '@material-ui/core';
+import React, {useState, useEffect} from 'react';
+import {CircularProgress} from '@material-ui/core';
 
 import axios from '../axios';
-import { useParams } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
 function JobInfo() {
   const [post, setPost] = useState({});
   const [loading, setLoading] = useState(true);
-  const { jobId } = useParams();
+  const {jobId} = useParams();
 
   useEffect(() => {
     const getData = async () => {
@@ -17,8 +17,6 @@ function JobInfo() {
     };
     getData();
   }, [jobId]);
-
-  console.log(post);
 
   useEffect(() => {
     window.scrollTo(0, 0);

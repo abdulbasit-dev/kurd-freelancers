@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {useParams, Link} from 'react-router-dom';
+import {CircularProgress} from '@material-ui/core';
 
 import axios from '../axios.js';
 
@@ -10,17 +11,18 @@ import emptyStar from '../assets/img/star-empty.svg';
 import facebook from '../assets/img/facebook.svg';
 import github from '../assets/img/github.svg';
 import linkedin from '../assets/img/linkedin.svg';
+import female from '../assets/img/user_1.svg';
+import male from '../assets/img/user_2.svg';
 
 function Profile() {
-  const { userId } = useParams();
+  const {userId} = useParams();
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(true);
-  console.log(userId);
 
   useEffect(() => {
     const getData = async () => {
       const resp = await axios.get(`api/user_profiles/${userId}`);
-      console.log(resp.data);
+
       setUserData(resp.data);
       setLoading(false);
     };
@@ -41,16 +43,30 @@ function Profile() {
       des: ' Lorem ipsum dolor sit amet consectetu adipisicing elit. Nisi, error, repellendus tenetur rem sequi illo atque ea corrupti numquam',
     },
   ];
-
+  // return (
+  //   <>
+  //     <p>sd</p>
+  //   </>
+  // );
   return loading ? (
-    <h1>Loading</h1>
+    <div className='flex justify-center my-48'>
+      <CircularProgress size={100} color='secondary' thickness={2} />
+    </div>
   ) : (
     <div className='container '>
       <div className='flex justify-between border pt-24 bg-cover px-4 pb-1 '>
         {/* avatar */}
         <img
           alt='Remy Sharp'
-          src={`${process.env.REACT_APP_BACKEND_API}/${userData.profile_picture}`}
+          src={`${
+            userData.profile.profile_picture
+              ? process.env.REACT_APP_BACKEND_API +
+                '/' +
+                userData.profile.profile_picture
+              : userData.profile.gender_id === 2
+              ? female
+              : male
+          }`}
           className='rounded-full h-24 w-24 '
         />
         {/* rating */}
@@ -67,11 +83,14 @@ function Profile() {
       </div>
       <div className='mt-4'>
         <div className='flex items-center '>
-          <h2 className='text-3xl'>{userData.name}</h2>
+          <h2 className='text-3xl'>{userData.profile.name}</h2>
           <p className='ml-4 text-green-400'>Available</p>
         </div>
         <p className='mt-2 text-gray-500 '>
-          {userData.skills.split(',')[0]} {userData.skills.split(',')[1] ? `| ` + userData.skills.split(',')[1] : ''}
+          {userData.profile.skills.split(',')[0]}{' '}
+          {userData.profile.skills.split(',')[1]
+            ? `| ` + userData.profile.skills.split(',')[1]
+            : ''}
         </p>
         <div className='flex mt-3'>
           {/* <button className='bg-blue-600 hover:bg-blue-700 rounded-md font-medium px-8 py-1 text-white mr-6'>
@@ -81,7 +100,10 @@ function Profile() {
           <button className='bg-white border border-blue-600 text-blue-600  rounded-md font-medium px-8 py-1 hover:bg-gray-200 '>
             Rate
           </button> */}
-          <Link to='/profile-setting' className={`bg-white border border-blue-600 text-blue-600  rounded-md font-medium px-8 py-1 hover:bg-gray-200 `}>
+          <Link
+            to='/profile-setting'
+            className={`bg-white border border-blue-600 text-blue-600  rounded-md font-medium px-8 py-1 hover:bg-gray-200 `}
+          >
             Edit profile
           </Link>
         </div>
@@ -89,7 +111,7 @@ function Profile() {
       <div className='mt-4 w-3/5'>
         <h2 className='text-2xl  border-b-2 border-gray-400 pb-3'>About Me:</h2>
 
-        <p className='mt-2 text-gray-500'>{userData.about_me}</p>
+        <p className='mt-2 text-gray-500'>{userData.profile.about_me}</p>
       </div>
 
       <div className='mt-16 flex justify-between items-start mb-16'>
@@ -140,13 +162,13 @@ function Profile() {
             <p className='pt-1'>
               Phone Number:{' '}
               <span className='text-gray-600'>
-                {userData.phone_number}
+                {userData.profile.phone_number}
               </span>
             </p>
             <p className='pt-1'>
               Address:{' '}
               <span className='text-gray-600'>
-                {userData.city.name},Kurdistan,Iraq
+                {userData.profile.city.name},Kurdistan,Iraq
               </span>
             </p>
           </div>

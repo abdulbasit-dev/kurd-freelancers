@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { Avatar } from '@material-ui/core';
+import React, {useContext} from 'react';
+import {Link, useHistory} from 'react-router-dom';
+import {Avatar} from '@material-ui/core';
 
-import BurgerMenu from './../components/BurgerMenu'
-import { AuthContext } from '../AuthContext';
+import BurgerMenu from './../components/BurgerMenu';
+import {AuthContext} from '../AuthContext';
 
 import logo from '../assets/img/logo.svg';
 
 function Header() {
-  const { isLoggedIn, logout, user } = useContext(AuthContext);
-  console.log('header user', user);
-  const history = useHistory()
+  const {isLoggedIn, logout, user} = useContext(AuthContext);
+
+  const history = useHistory();
   return (
     <header className='shadow  py-2 z-20  w-full fixed bg-white'>
       <div className='container flex flex-wrap justify-between items-center'>
@@ -50,8 +50,6 @@ function Header() {
                   <Avatar alt={user.name} src='/static/images/avatar/1.jpg' />
                 </Link>
                 <ul className=' hidden font-medium items-center tablet:flex'>
-
-
                   <li>
                     <Link
                       to={`/profile/${user.id}`}
@@ -63,28 +61,35 @@ function Header() {
                   <li
                     className='ml-5 hover:text-blue-600 cursor-pointor mr-5'
                     onClick={() => {
-                      logout()
-                      history.push('/')
+                      logout();
+                      history.push('/');
                     }}
                   >
                     Logout
-              </li>
+                  </li>
                   <li className='px-3 py-1 mr-5 bg-primary text-white rounded-lg'>
                     <Link to='/post-job' className=''>
                       Post a Job
-                </Link>
+                    </Link>
                   </li>
                 </ul>
                 <div>
-                  <BurgerMenu Urls={[{ path: `/profile/${user.id}`, name: `${user.name}` },
-                  {
-                    path: '/',
-                    name: 'Home',
-                  },
-                  {
-                    path: '/about',
-                    name: 'About',
-                  }, { path: "profile", name: 'Freelancers' }, { path: '/jobs', name: "Find jobs" }, { path: '/', name: 'Logout', func: logout }]} />
+                  <BurgerMenu
+                    Urls={[
+                      {path: `/profile/${user.id}`, name: `${user.name}`},
+                      {
+                        path: '/',
+                        name: 'Home',
+                      },
+                      {
+                        path: '/about',
+                        name: 'About',
+                      },
+                      {path: 'profile', name: 'Freelancers'},
+                      {path: '/jobs', name: 'Find jobs'},
+                      {path: '/', name: 'Logout', func: logout},
+                    ]}
+                  />
                 </div>
               </div>
             </>
@@ -94,45 +99,49 @@ function Header() {
                 <li>
                   <Link to='/register' className='mr-5 hover:text-blue-600'>
                     Register
-                </Link>
+                  </Link>
                 </li>
                 <li>
                   <Link to='/signin' className='mr-5 hover:text-blue-600'>
                     Sign in
-                </Link>
+                  </Link>
                 </li>
-
               </ul>
               <div>
-                <BurgerMenu Urls={[{
-                  path: '/',
-                  name: 'Home',
-                },
-                {
-                  path: '/about',
-                  name: 'About',
-                },
-                {
-                  path: "profile",
-                  name: 'Freelancers'
-                },
-                {
-                  path: '/jobs',
-                  name: "Find jobs"
-                },
-                {
-                  path: '/signin',
-                  name: 'Sign in'
-                }, {
-                  path: '/register',
-                  name: 'Register'
-                },]} />
+                <BurgerMenu
+                  Urls={[
+                    {
+                      path: '/',
+                      name: 'Home',
+                    },
+                    {
+                      path: '/about',
+                      name: 'About',
+                    },
+                    {
+                      path: 'profile',
+                      name: 'Freelancers',
+                    },
+                    {
+                      path: '/jobs',
+                      name: 'Find jobs',
+                    },
+                    {
+                      path: '/signin',
+                      name: 'Sign in',
+                    },
+                    {
+                      path: '/register',
+                      name: 'Register',
+                    },
+                  ]}
+                />
               </div>
             </>
           )}
         </div>
       </div>
-    </header >
+    </header>
   );
 }
 
