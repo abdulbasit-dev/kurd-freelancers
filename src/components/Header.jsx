@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect, useLayoutEffect} from 'react';
+import React, {useContext} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {Avatar} from '@material-ui/core';
 
@@ -6,7 +6,6 @@ import BurgerMenu from './../components/BurgerMenu';
 import {AuthContext} from '../AuthContext';
 
 import logo from '../assets/img/logo.svg';
-import axios from 'axios';
 
 function Header() {
   const {isLoggedIn, logout, user} = useContext(AuthContext);

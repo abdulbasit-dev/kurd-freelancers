@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
+  // Redirect,
 } from 'react-router-dom';
 import {ToastContainer} from 'react-toastify';
 
@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import About from './pages/About';
 import Home from './pages/Home/Home';
-import Page404 from './pages/Page404/Page404';
+// import Page404 from './pages/Page404/Page404';
 import Profile from './pages/Profile';
 import SignIn from './pages/SignIn';
 import ProfileSetting from './pages/ProfileSetting';
