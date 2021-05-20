@@ -35,6 +35,7 @@ const Singnup = () => {
     }
 
     const resp = await axios.post('/api/register', userInfo);
+    console.log(resp.data);
     auth.login(resp.data, resp.data.access_token);
     setEmail('');
     setPassword('');

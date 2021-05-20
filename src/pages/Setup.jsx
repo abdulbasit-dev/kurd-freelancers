@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import {toast} from 'react-toastify';
 
 import axios from '../axios';
 import {useHistory} from 'react-router';
+import {AuthContext} from '../AuthContext';
 
 function Setup() {
   const [cities, setCities] = useState([]);
@@ -23,6 +24,8 @@ function Setup() {
   const [profilePicture, setProfilePicture] = useState(null);
   const [previewUrl, setPreviewUrl] = useState();
   const history = useHistory();
+
+  const auth = useContext(AuthContext);
 
   const {userId} = useParams();
 
@@ -95,6 +98,7 @@ function Setup() {
         progress: undefined,
       });
       setTimeout(() => {
+        auth.login(resp.data.user, resp.data.access_token);
         history.push(`/profile/${parseInt(userId)}`);
       }, 2500);
     }

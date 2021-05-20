@@ -34,6 +34,7 @@ function Jobs() {
       const posts = await axios.get('api/user_profiles');
       const locations = await axios.get('api/cities');
       const tags = await axios.get('api/tags');
+      console.log(posts.data);
 
       setPosts(posts.data.data);
       setLocations(locations.data.data);

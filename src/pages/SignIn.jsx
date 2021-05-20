@@ -30,6 +30,7 @@ const SignIn = () => {
     };
     const resp = await axios.post('/api/login', obj);
     //if respose has error show error
+    console.log(resp.data);
     if (resp.data.error) {
       toast.error(resp.data.message, {
         position: 'top-right',
@@ -58,7 +59,7 @@ const SignIn = () => {
             you want!
           </p>
           <div className='flex justify-center mt-20 mb-10'>
-            <Link to='/register'>
+            <Link to='/registervucodorita@mailinator.com'>
               <Button variant='contained' color='primary'>
                 Sign up
               </Button>

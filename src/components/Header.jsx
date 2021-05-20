@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState, useEffect, useLayoutEffect} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {Avatar} from '@material-ui/core';
 
@@ -6,6 +6,7 @@ import BurgerMenu from './../components/BurgerMenu';
 import {AuthContext} from '../AuthContext';
 
 import logo from '../assets/img/logo.svg';
+import axios from 'axios';
 
 function Header() {
   const {isLoggedIn, logout, user} = useContext(AuthContext);
@@ -67,7 +68,7 @@ function Header() {
                   >
                     Logout
                   </li>
-                  {user.profile && (
+                  {user.has_profile && (
                     <li className='px-3 py-1 mr-5 bg-primary text-white rounded-lg'>
                       <Link to='/post-job' className=''>
                         Post a Job

@@ -25,7 +25,6 @@ function Profile() {
   useEffect(() => {
     const getData = async () => {
       const resp = await axios.get(`api/user_profiles/${userId}`);
-
       setUserData(resp.data);
       setLoading(false);
     };
